@@ -32,6 +32,7 @@ public class AdmController {
 	@Autowired
 	private AdmService AdmSv;
 	
+	//test
 	//시스템관리 - 공통코드 
 	@SuppressWarnings({ "unchecked", "rawtypes" })  
 	@RequestMapping(value="/api/Adm/getAdm1000",  method = RequestMethod.POST, headers="Accept=application/json")  
