@@ -1,0 +1,1433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.AmtMapper">
+  
+  <select id="getAmt1001" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1001(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{acqdt1, mode=IN, jdbcType=VARCHAR},
+      		#{acqdt2, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},  
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{curcommlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		
+      		 
+    ) }
+ </select> 
+ 
+  <select id="getAmt1002" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1002(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},  
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{normcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{errcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{curcommlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		
+    ) }
+ </select> 
+
+  <select id="getAmt1003" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1003(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{girono, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},  
+      		#{normcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{errcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{rjtcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{finccnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{rcpmcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{normamt, mode=OUT, jdbcType=INTEGER}, 
+      		#{erramt, mode=OUT, jdbcType=INTEGER}, 
+      		#{rjtamt, mode=OUT, jdbcType=INTEGER}, 
+      		#{totalamt, mode=OUT, jdbcType=INTEGER}, 
+      		#{fincamt, mode=OUT, jdbcType=INTEGER}, 
+      		#{rcpmamt, mode=OUT, jdbcType=INTEGER}, 
+      		#{cntforpaging, mode=OUT, jdbcType=INTEGER}, 
+      		#{curcommlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		
+
+    ) }
+ </select> 
+ 
+   <select id="getAmt1004" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1004(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{girono, mode=IN, jdbcType=VARCHAR},
+      		#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		
+
+    ) }
+ </select> 
+ 
+   <select id="getAmt1005" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1005(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR},
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{girono, mode=IN, jdbcType=VARCHAR},
+      		#{seq, mode=IN, jdbcType=VARCHAR},
+      		#{custbrwsno, mode=IN, jdbcType=VARCHAR}
+
+    ) }
+    </select> 
+
+   <select id="getAmt1006" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1006(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{accflag, mode=IN, jdbcType=VARCHAR},
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>  
+ 
+   <select id="getAmt1007" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1007(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},
+      		#{filenm, mode=IN, jdbcType=VARCHAR},
+      		#{noit, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>   
+ 
+   <select id="getAmt1008" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1008(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{acqno, mode=IN, jdbcType=VARCHAR},      		
+      		#{girono, mode=IN, jdbcType=VARCHAR},
+      		#{normnoit, mode=IN, jdbcType=VARCHAR},
+      		#{normamt, mode=IN, jdbcType=VARCHAR},
+      		#{rjnoit, mode=IN, jdbcType=VARCHAR},
+      		#{rjamt, mode=IN, jdbcType=VARCHAR},
+      		#{itgrnoit, mode=IN, jdbcType=VARCHAR},
+      		#{itgramt, mode=IN, jdbcType=VARCHAR},
+      		#{rmsgdt, mode=IN, jdbcType=VARCHAR},
+      		#{girocoms, mode=IN, jdbcType=VARCHAR},
+      		#{rcpmrflendyn, mode=IN, jdbcType=VARCHAR},
+      		#{rcpmrflnoit, mode=IN, jdbcType=VARCHAR},
+      		#{seq, mode=IN, jdbcType=VARCHAR},
+      		#{recpdt, mode=IN, jdbcType=VARCHAR},
+      		#{recpbankcd, mode=IN, jdbcType=VARCHAR},
+      		#{recpbrchcd, mode=IN, jdbcType=VARCHAR},
+      		#{custbrwsno, mode=IN, jdbcType=VARCHAR},
+      		#{amt, mode=IN, jdbcType=VARCHAR},
+      		#{recpclsf, mode=IN, jdbcType=VARCHAR},
+      		#{tbstprocclsf, mode=IN, jdbcType=VARCHAR},
+      		#{shftdt, mode=IN, jdbcType=VARCHAR},
+      		#{girocoms_s, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>  
+
+   <select id="getAmt1009" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1009(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{acqdt, mode=IN, jdbcType=VARCHAR},
+      		#{gryn, mode=OUT, jdbcType=VARCHAR}
+    ) }
+    </select>   
+    
+    
+   
+
+   <select id="getAmt1700" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1700(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{curryymm, mode=OUT, jdbcType=VARCHAR},
+      		#{giroprt, mode=OUT, jdbcType=VARCHAR},
+      		#{girono, mode=OUT, jdbcType=VARCHAR},
+      		#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{commcdcur4, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{commcdcur5, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		      		
+    ) }
+    </select>   
+
+   <select id="getAmt1701" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1701(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{curryymm, mode=OUT, jdbcType=VARCHAR},
+      		#{giroprt, mode=OUT, jdbcType=VARCHAR},
+      		#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
+      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }   		      		
+    ) }
+    </select>   
+
+   <select id="getAmt1702" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1702(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{giroprt, mode=IN, jdbcType=VARCHAR},
+      		#{vistprt, mode=IN, jdbcType=VARCHAR},
+      		#{rdrnm_catl, mode=IN, jdbcType=VARCHAR},
+      		#{setupval1, mode=IN, jdbcType=VARCHAR},
+      		#{setupval2, mode=IN, jdbcType=VARCHAR},
+      		#{setupval3, mode=IN, jdbcType=VARCHAR},
+      		#{setupval4, mode=IN, jdbcType=VARCHAR},
+      		#{setupval5, mode=IN, jdbcType=VARCHAR},
+      		#{setupval6, mode=IN, jdbcType=VARCHAR},
+      		#{setupval7, mode=IN, jdbcType=VARCHAR},
+      		#{setupval8, mode=IN, jdbcType=VARCHAR},
+      		#{setupval9, mode=IN, jdbcType=VARCHAR},
+      		#{setupval10, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}      		
+    ) }
+    </select>   
+
+
+   <select id="getAmt1703" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1703(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{f_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{t_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{valyn, mode=IN, jdbcType=VARCHAR},
+			#{prevalyn, mode=IN, jdbcType=VARCHAR},
+			#{prevalqty, mode=IN, jdbcType=VARCHAR},
+			#{freeclsf, mode=IN, jdbcType=VARCHAR},
+			#{dlvclsf, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthd, mode=IN, jdbcType=VARCHAR},
+			#{qqyn, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{mmintg, mode=IN, jdbcType=VARCHAR},
+			#{girotype, mode=IN, jdbcType=VARCHAR},
+			#{etc1, mode=IN, jdbcType=VARCHAR},
+			#{etc2, mode=IN, jdbcType=VARCHAR},
+			#{dlvdstccd, mode=IN, jdbcType=VARCHAR},
+			#{f_dlvno, mode=IN, jdbcType=VARCHAR},
+			#{t_dlvno, mode=IN, jdbcType=VARCHAR},
+			#{ext1, mode=IN, jdbcType=VARCHAR},
+			#{ext2, mode=IN, jdbcType=VARCHAR},
+			#{ext3, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{botel, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{aprvno, mode=OUT, jdbcType=VARCHAR},
+			#{msg, mode=OUT, jdbcType=VARCHAR},
+			#{msg2, mode=OUT, jdbcType=VARCHAR},
+			#{ext1, mode=OUT, jdbcType=VARCHAR},
+			#{ext2, mode=OUT, jdbcType=VARCHAR},
+			#{ext3, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1703_GIROA4X3" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1703_GIROA4X3(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{f_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{t_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{valyn, mode=IN, jdbcType=VARCHAR},
+			#{prevalyn, mode=IN, jdbcType=VARCHAR},
+			#{prevalqty, mode=IN, jdbcType=VARCHAR},
+			#{freeclsf, mode=IN, jdbcType=VARCHAR},
+			#{dlvclsf, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthd, mode=IN, jdbcType=VARCHAR},
+			#{qqyn, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{mmintg, mode=IN, jdbcType=VARCHAR},
+			#{girotype, mode=IN, jdbcType=VARCHAR},
+			#{etc1, mode=IN, jdbcType=VARCHAR},
+			#{etc2, mode=IN, jdbcType=VARCHAR},
+			#{dlvdstccd, mode=IN, jdbcType=VARCHAR},
+			#{f_dlvno, mode=IN, jdbcType=VARCHAR},
+			#{t_dlvno, mode=IN, jdbcType=VARCHAR},
+			#{ext1, mode=IN, jdbcType=VARCHAR},
+			#{ext2, mode=IN, jdbcType=VARCHAR},
+			#{ext3, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{botel, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{aprvno, mode=OUT, jdbcType=VARCHAR},
+			#{msg, mode=OUT, jdbcType=VARCHAR},
+			#{msg2, mode=OUT, jdbcType=VARCHAR},
+			#{ext1, mode=OUT, jdbcType=VARCHAR},
+			#{ext2, mode=OUT, jdbcType=VARCHAR},
+			#{ext3, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1704" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1704(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+    
+   <select id="getAmt1705" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_1705(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{botel, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{aprvno, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2000" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2000(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{curryymm, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{giroprt, mode=OUT, jdbcType=VARCHAR},
+			#{giromargin, mode=OUT, jdbcType=VARCHAR},
+			#{vistmargin, mode=OUT, jdbcType=VARCHAR},
+			#{msgcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{msgcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{msgcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2001" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{search_gb, mode=IN, jdbcType=VARCHAR},
+			#{search_word, mode=IN, jdbcType=VARCHAR},
+			#{curryymm, mode=OUT, jdbcType=VARCHAR},
+			#{rdr_no, mode=OUT, jdbcType=VARCHAR},
+			#{rdrnm, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR},
+			#{dlvaddr, mode=OUT, jdbcType=VARCHAR},
+			#{rdrtel_no, mode=OUT, jdbcType=VARCHAR},
+			#{medikindcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2002" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2002(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2003" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2003(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{f_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{t_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{mmintg, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2004" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2004(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{sessionid, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{clamamt, mode=IN, jdbcType=VARCHAR},
+			#{f_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{t_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{dlvqty, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{etc1, mode=IN, jdbcType=VARCHAR},
+			#{etc2, mode=IN, jdbcType=VARCHAR},
+			#{ext1, mode=IN, jdbcType=VARCHAR},
+			#{ext2, mode=IN, jdbcType=VARCHAR},
+			#{ext3, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{botel, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{aprvno, mode=OUT, jdbcType=VARCHAR},
+			#{msg, mode=OUT, jdbcType=VARCHAR},
+			#{msg2, mode=OUT, jdbcType=VARCHAR},
+			#{sessionid, mode=OUT, jdbcType=VARCHAR},
+			#{ext1, mode=OUT, jdbcType=VARCHAR},
+			#{ext2, mode=OUT, jdbcType=VARCHAR},
+			#{ext3, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt2005" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_AMT_2005(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{sessionid, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{clamamt, mode=IN, jdbcType=VARCHAR},
+			#{f_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{t_subsmappli, mode=IN, jdbcType=VARCHAR},
+			#{dlvqty, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{rptvextndt, mode=IN, jdbcType=VARCHAR},
+			#{rptvvalmm, mode=IN, jdbcType=VARCHAR},
+			#{rptvextnpers, mode=IN, jdbcType=VARCHAR},
+			#{etc1, mode=IN, jdbcType=VARCHAR},
+			#{ext1, mode=IN, jdbcType=VARCHAR},
+			#{ext2, mode=IN, jdbcType=VARCHAR},
+			#{ext3, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{botel, mode=OUT, jdbcType=VARCHAR},
+			#{msg, mode=OUT, jdbcType=VARCHAR},
+			#{sessionid, mode=OUT, jdbcType=VARCHAR},
+			#{ext1, mode=OUT, jdbcType=VARCHAR},
+			#{ext2, mode=OUT, jdbcType=VARCHAR},
+			#{ext3, mode=OUT, jdbcType=VARCHAR},
+			#{curryy, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+	<!-- 자동이체 - 신청관리 --> 
+   <select id="getAmt1300" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1300(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1301" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1301(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{fr_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{to_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{aplcprocstat, mode=IN, jdbcType=VARCHAR},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt10, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt20, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt30, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt40, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt50, mode=OUT, jdbcType=INTEGER},
+			#{aplccnt60, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1302" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1302(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcclsf, mode=IN, jdbcType=VARCHAR},
+			#{aplcprocstat, mode=IN, jdbcType=VARCHAR},
+			#{sechcond, mode=IN, jdbcType=VARCHAR},
+			#{sechcont, mode=IN, jdbcType=VARCHAR},
+			#{fr_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{to_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{uncnfmcnt, mode=OUT, jdbcType=INTEGER},
+			#{cnfmcnt, mode=OUT, jdbcType=INTEGER},
+			#{canccnt, mode=OUT, jdbcType=INTEGER},
+			#{aprverrcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1303" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1303(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcno, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+
+   <select id="getAmt1304" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1304(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select>   
+ 
+   <select id="getAmt1305" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1305(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{aplcno, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{pymtstrtdt, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{closyn, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>   
+
+   <select id="getAmt1306" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1306(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{aplcyn, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcno, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>   
+
+   <select id="getAmt1307" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1307(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcno, mode=IN, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{dlvaddr, mode=IN, jdbcType=VARCHAR},
+			#{dlvaddrdtls, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select>   
+
+   <!-- 자동이체 - 신청작업관리 -->
+   <select id="getAmt1400" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1400(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1401" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1401(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmdt1, mode=IN, jdbcType=VARCHAR},
+			#{trsmdt2, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curcommlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1402" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1402(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{trsmdt, mode=IN, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmno, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1403" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1403(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1405" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1405(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=IN, jdbcType=VARCHAR},
+			#{insttcd, mode=IN, jdbcType=VARCHAR},
+			#{totnoit, mode=IN, jdbcType=VARCHAR},
+			#{noit1, mode=IN, jdbcType=VARCHAR},
+			#{noit2, mode=IN, jdbcType=VARCHAR},
+			#{noit3, mode=IN, jdbcType=VARCHAR},
+			#{noit4, mode=IN, jdbcType=VARCHAR},
+			#{aplcacpndt, mode=IN, jdbcType=VARCHAR},
+			#{seq, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{shftaplcclsf, mode=IN, jdbcType=VARCHAR},
+			#{pymtno_2, mode=IN, jdbcType=VARCHAR},
+			#{recpinstt, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{acpnpointcd, mode=IN, jdbcType=VARCHAR},
+			#{feekind, mode=IN, jdbcType=VARCHAR},
+			#{ocomcd, mode=IN, jdbcType=VARCHAR},
+			#{ocomresn, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1408" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1408(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=IN, jdbcType=VARCHAR},
+			#{insttcd, mode=IN, jdbcType=VARCHAR},
+			#{totnoit, mode=IN, jdbcType=VARCHAR},
+			#{noit1, mode=IN, jdbcType=VARCHAR},
+			#{noit2, mode=IN, jdbcType=VARCHAR},
+			#{noit3, mode=IN, jdbcType=VARCHAR},
+			#{noit4, mode=IN, jdbcType=VARCHAR},
+			#{aplcacpndt, mode=IN, jdbcType=VARCHAR},
+			#{seq, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{shftaplcclsf, mode=IN, jdbcType=VARCHAR},
+			#{pymtno_2, mode=IN, jdbcType=VARCHAR},
+			#{recpinstt, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{acpnpointcd, mode=IN, jdbcType=VARCHAR},
+			#{feekind, mode=IN, jdbcType=VARCHAR},
+			#{ocomcd, mode=IN, jdbcType=VARCHAR},
+			#{ocomresn, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1409" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1409(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1410" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1410(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{trsmdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1411" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1411(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{trsmdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1412" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1412(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{trsmdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1413" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1413(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{trsmdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{workclsf, mode=IN, jdbcType=VARCHAR},
+			#{trsmno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1433" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1433(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+	<!-- 자동이체 - 자동이체 승인오류 관리 -->
+   <select id="getAmt3000" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3000(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+    
+   <select id="getAmt3001" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcclsf, mode=IN, jdbcType=VARCHAR},
+			#{sechcond, mode=IN, jdbcType=VARCHAR},
+			#{sechcont, mode=IN, jdbcType=VARCHAR},
+			#{fr_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{to_aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+    
+   <select id="getAmt3002" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3002(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplcno, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+    
+   <select id="getAmt3004" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3004(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+    
+	<!-- 자동이체 - 현황조회 -->
+   <select id="getAmt1501" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1501(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{rp_clsf, mode=IN, jdbcType=VARCHAR},
+			#{fr_dt, mode=IN, jdbcType=VARCHAR},
+			#{to_dt, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{b_cnt, mode=OUT, jdbcType=INTEGER},
+			#{c_cnt, mode=OUT, jdbcType=INTEGER},
+			#{d_cnt, mode=OUT, jdbcType=INTEGER},
+			#{e_cnt, mode=OUT, jdbcType=INTEGER},
+			#{g_cnt, mode=OUT, jdbcType=INTEGER},
+			#{tot_cnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 	
+
+	<!-- 자동이체 - 청구관리 -->
+   <select id="getAmt1601" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1601(
+		    #{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1602" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1602(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt1, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt2, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt3, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt4, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt5, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt6, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}  
+    ) }
+    </select> 
+
+   <select id="getAmt1603" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1603(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR}   
+    ) }
+    </select> 
+
+   <select id="getAmt1604" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1604(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1606" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1606(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{filenm, mode=IN, jdbcType=VARCHAR},
+			#{insttcd, mode=IN, jdbcType=VARCHAR},
+			#{pymtdt, mode=IN, jdbcType=VARCHAR},
+			#{totpayoicapnoit, mode=IN, jdbcType=INTEGER},
+			#{totpayoicapamt, mode=IN, jdbcType=INTEGER},
+			#{prtnpayoicapnoit, mode=IN, jdbcType=INTEGER},
+			#{prtnpayoicapamt, mode=IN, jdbcType=INTEGER},
+			#{centrverierrnoit, mode=IN, jdbcType=INTEGER},
+			#{payobankcoms, mode=IN, jdbcType=INTEGER},
+			#{rcpmbankcoms, mode=IN, jdbcType=VARCHAR},
+			#{seq, mode=IN, jdbcType=
+			#{pymtno, mode=IN, jdbcType=
+			#{payoyn, mode=IN, jdbcType=
+			#{recpocomcd, mode=IN, jdbcType=
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}   
+    ) }
+    </select> 
+
+   <select id="getAmt1607" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1607(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}   
+    ) }
+    </select> 
+
+   <select id="getAmt1608" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1608(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1609" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1609(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1610" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1610(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 자동이체 - 청구결과 -->
+   <select id="getSSAmt1701" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1701(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt2, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt3, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getSSAmt1702" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1702(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{sechcond, mode=IN, jdbcType=VARCHAR},
+			#{sechcont, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{erryn, mode=IN, jdbcType=VARCHAR},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{normcnt, mode=OUT, jdbcType=INTEGER},
+			#{errcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalamt, mode=OUT, jdbcType=INTEGER},
+			#{normamt, mode=OUT, jdbcType=INTEGER},
+			#{erramt, mode=OUT, jdbcType=INTEGER},
+			#{comsamt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+	<!-- 자동이체 - 납부자 -->
+   <select id="getAmt1800" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1800(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{telnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1801" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1801(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{sechcond, mode=IN, jdbcType=VARCHAR},
+			#{sechcont, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1802" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1802(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN, jdbcType=VARCHAR},
+			#{cnfm, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{cntrcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1803" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1803(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{uptflag, mode=IN, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN/OUT, jdbcType=VARCHAR},
+			#{shftclsf, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{pymtnm, mode=IN, jdbcType=VARCHAR},
+			#{email, mode=IN, jdbcType=VARCHAR},
+			#{tel1, mode=IN, jdbcType=VARCHAR},
+			#{tel2, mode=IN, jdbcType=VARCHAR},
+			#{tel3, mode=IN, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{addr, mode=IN, jdbcType=VARCHAR},
+			#{addrdtls, mode=IN, jdbcType=VARCHAR},
+			#{bankcd, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{cardcmpycd, mode=IN, jdbcType=VARCHAR},
+			#{cardno, mode=IN, jdbcType=VARCHAR},
+			#{vdtyprd, mode=IN, jdbcType=VARCHAR},
+			#{aplcpathcd, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1804" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1804(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1805" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1805(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{normcnt, mode=OUT, jdbcType=INTEGER},
+			#{errcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalamt, mode=OUT, jdbcType=INTEGER},
+			#{normamt, mode=OUT, jdbcType=INTEGER},
+			#{erramt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1806" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1806(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{selgb, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{uncnfmcnt, mode=OUT, jdbcType=INTEGER},
+			#{cnfmcnt, mode=OUT, jdbcType=INTEGER},
+			#{canccnt, mode=OUT, jdbcType=INTEGER},
+			#{aprverrcnt, mode=OUT, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1807" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1807(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN, jdbcType=VARCHAR},
+			#{pymtseq, mode=OUT, jdbcType=VARCHAR},
+			#{shftclsf, mode=OUT, jdbcType=VARCHAR},
+			#{prn, mode=OUT, jdbcType=VARCHAR},
+			#{pymtnm, mode=OUT, jdbcType=VARCHAR},
+			#{email, mode=OUT, jdbcType=VARCHAR},
+			#{tel1, mode=OUT, jdbcType=VARCHAR},
+			#{tel2, mode=OUT, jdbcType=VARCHAR},
+			#{tel3, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no1, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no2, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no3, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=OUT, jdbcType=VARCHAR},
+			#{zip2, mode=OUT, jdbcType=VARCHAR},
+			#{zip3, mode=OUT, jdbcType=VARCHAR},
+			#{addr, mode=OUT, jdbcType=VARCHAR},
+			#{addrdtls, mode=OUT, jdbcType=VARCHAR},
+			#{bankcd, mode=OUT, jdbcType=VARCHAR},
+			#{banknm, mode=OUT, jdbcType=VARCHAR},
+			#{acctno, mode=OUT, jdbcType=VARCHAR},
+			#{rdrnm, mode=OUT, jdbcType=VARCHAR},
+			#{pymtno, mode=OUT, jdbcType=VARCHAR},
+			#{aplcdt, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=OUT, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{shftbgnyymm, mode=OUT, jdbcType=VARCHAR},
+			#{rdrtel_no1, mode=OUT, jdbcType=VARCHAR},
+			#{rdrtel_no2, mode=OUT, jdbcType=VARCHAR},
+			#{rdrtel_no3, mode=OUT, jdbcType=VARCHAR},
+			#{shftclsfnm, mode=OUT, jdbcType=VARCHAR},
+			#{arskey, mode=OUT, jdbcType=VARCHAR},
+			#{telnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt1808" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1808(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1809" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1809(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN, jdbcType=VARCHAR},
+			#{aplyyymm, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1810" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1810(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN, jdbcType=VARCHAR},
+			#{cptelegramkey, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no1, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no2, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no3, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1811" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1811(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{cptelegramkey, mode=IN, jdbcType=VARCHAR},
+			#{resultyn, mode=IN, jdbcType=VARCHAR},
+			#{resultcode, mode=IN, jdbcType=VARCHAR},
+			#{recordfilename, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt1813" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_1813(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{bankcd, mode=IN, jdbcType=VARCHAR},
+			#{imgfilename, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 휴대폰 자동이체 -->
+   <select id="getAmt2701" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2701(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2702" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2702(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{search_nm, mode=IN, jdbcType=VARCHAR},
+			#{search_pttn, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2705" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2705(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{tid_input, mode=IN, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2707" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2707(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{clamno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{tid_input, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 카드 자동이체 - 카드청구(기존)	 -->
+   <select id="getAmt2801" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2801(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2802" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2802(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{search_nm, mode=IN, jdbcType=VARCHAR},
+			#{search_pttn, mode=IN, jdbcType=VARCHAR},
+			#{chksend, mode=IN, jdbcType=INTEGER},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2805" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2805(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{tid_input, mode=IN, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2807" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2807(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{clamno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{tid_input, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 카드 자동이체 - 카드청구(신규)	 -->
+   <select id="getAmt4301" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_4301(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt4302" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_4302(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{search_nm, mode=IN, jdbcType=VARCHAR},
+			#{search_pttn, mode=IN, jdbcType=VARCHAR},
+			#{chksend, mode=IN, jdbcType=INTEGER},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt4307" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_4307(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{shftclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{clamno, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{apresultcd, mode=IN, jdbcType=VARCHAR},
+			#{apresultmsg, mode=IN, jdbcType=VARCHAR},
+			#{apmobilid, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 독자환불관리 -->
+   <select id="getAmt3201" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3201(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{frdt, mode=IN, jdbcType=VARCHAR},
+			#{todt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdrnm, mode=IN, jdbcType=VARCHAR},
+			#{search_pttn, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt3205" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_3205(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamno, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{bgnsubsmappli, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 지국이체 - 지국송금이체 -->
+   <select id="getAmt2601" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2601(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2602" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2602(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2603" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2603(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},
+			#{recpfrdt, mode=IN, jdbcType=VARCHAR},
+			#{recptodt, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2604" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2604(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{filenm, mode=OUT, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2606" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2606(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},
+			#{filenm, mode=IN, jdbcType=VARCHAR},
+			#{insttcd, mode=IN, jdbcType=VARCHAR},
+			#{rcpmdt, mode=IN, jdbcType=VARCHAR},
+			#{payicapnoit, mode=IN, jdbcType=INTEGER},
+			#{payicapamt, mode=IN, jdbcType=INTEGER},
+			#{centrverierrnoit, mode=IN, jdbcType=INTEGER},
+			#{payobankcoms, mode=IN, jdbcType=INTEGER},
+			#{rcpmbankcoms, mode=IN, jdbcType=VARCHAR},
+			#{payno, mode=IN, jdbcType=VARCHAR},
+			#{payyn, mode=IN, jdbcType=VARCHAR},
+			#{payocomcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2608" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2608(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2610" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2610(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{basidt2, mode=IN, jdbcType=VARCHAR},
+			#{clamtmthdcd, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getAmt2611" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2611(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getAmt2612" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_AMT_2612(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{basidt, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+	
+
+
+</mapper>  

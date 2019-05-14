@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.InfMapper">
+  
+	<!-- 지국정보 -->
+   <select id="getInf1001" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_INF_1001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{deptcd, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{bo_headnm, mode=IN, jdbcType=VARCHAR},
+			#{cntrstatcd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getInf1002" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_INF_1002(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{deptcd, mode=OUT, jdbcType=VARCHAR},
+			#{areacd, mode=OUT, jdbcType=VARCHAR},
+			#{dmangyn, mode=OUT, jdbcType=VARCHAR},
+			#{boclsf, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no1, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no2, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no3, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no1, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no2, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no3, mode=OUT, jdbcType=VARCHAR},
+			#{zip11, mode=OUT, jdbcType=VARCHAR},
+			#{zip12, mode=OUT, jdbcType=VARCHAR},
+			#{zip13, mode=OUT, jdbcType=VARCHAR},
+			#{addr1, mode=OUT, jdbcType=VARCHAR},
+			#{dtlsaddr1, mode=OUT, jdbcType=VARCHAR},
+			#{bo_headnm, mode=OUT, jdbcType=VARCHAR},
+			#{prn, mode=OUT, jdbcType=VARCHAR},
+			#{cntrdt, mode=OUT, jdbcType=VARCHAR},
+			#{cntrexpydt, mode=OUT, jdbcType=VARCHAR},
+			#{cntrstatcd, mode=OUT, jdbcType=VARCHAR},
+			#{ernno, mode=OUT, jdbcType=VARCHAR},
+			#{firmnm, mode=OUT, jdbcType=VARCHAR},
+			#{presinm, mode=OUT, jdbcType=VARCHAR},
+			#{bizcond, mode=OUT, jdbcType=VARCHAR},
+			#{item, mode=OUT, jdbcType=VARCHAR},
+			#{zip21, mode=OUT, jdbcType=VARCHAR},
+			#{zip22, mode=OUT, jdbcType=VARCHAR},
+			#{zip23, mode=OUT, jdbcType=VARCHAR},
+			#{addr2, mode=OUT, jdbcType=VARCHAR},
+			#{dtlsaddr2, mode=OUT, jdbcType=VARCHAR},
+			#{bo_prn, mode=OUT, jdbcType=VARCHAR},
+			#{bo_flnm, mode=OUT, jdbcType=VARCHAR},
+			#{bo_tel_no1, mode=OUT, jdbcType=VARCHAR},
+			#{bo_tel_no2, mode=OUT, jdbcType=VARCHAR},
+			#{bo_tel_no3, mode=OUT, jdbcType=VARCHAR},
+			#{bo_ptph_no1, mode=OUT, jdbcType=VARCHAR},
+			#{bo_ptph_no2, mode=OUT, jdbcType=VARCHAR},
+			#{bo_ptph_no3, mode=OUT, jdbcType=VARCHAR},
+			#{bo_zip1, mode=OUT, jdbcType=VARCHAR},
+			#{bo_zip2, mode=OUT, jdbcType=VARCHAR},
+			#{bo_zip3, mode=OUT, jdbcType=VARCHAR},
+			#{bo_addr, mode=OUT, jdbcType=VARCHAR},
+			#{bo_dtlsaddr, mode=OUT, jdbcType=VARCHAR},
+			#{deps_persnm, mode=OUT, jdbcType=VARCHAR},
+			#{bankcd, mode=OUT, jdbcType=VARCHAR},
+			#{acctno, mode=OUT, jdbcType=VARCHAR},
+			#{deps_persnm_a, mode=OUT, jdbcType=VARCHAR},
+			#{bankcd_a, mode=OUT, jdbcType=VARCHAR},
+			#{acctno_a, mode=OUT, jdbcType=VARCHAR},
+			#{smsnum1, mode=OUT, jdbcType=VARCHAR},
+			#{jide_sms, mode=OUT, jdbcType=VARCHAR},
+			#{apttothoscnt, mode=OUT, jdbcType=INTEGER},
+			#{houstothoscnt, mode=OUT, jdbcType=INTEGER},
+			#{shoptothoscnt, mode=OUT, jdbcType=INTEGER},
+			#{offi_roomtothoscnt, mode=OUT, jdbcType=INTEGER},
+			#{addbusiinfo, mode=OUT, jdbcType=VARCHAR},
+			#{gurtamt, mode=OUT, jdbcType=VARCHAR},
+			#{agrmntdt, mode=OUT, jdbcType=VARCHAR},
+			#{sendcd, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR},
+			#{sum1, mode=OUT, jdbcType=INTEGER},
+			#{sum2, mode=OUT, jdbcType=INTEGER},
+			#{sum3, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getInf1003" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_INF_1003(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{selluprccd, mode=OUT, jdbcType=VARCHAR},
+			#{areauprccd, mode=OUT, jdbcType=VARCHAR},
+			#{dlvwoncostcd, mode=OUT, jdbcType=VARCHAR},
+			#{stetselluprccd, mode=OUT, jdbcType=VARCHAR},
+			#{prtfacty, mode=OUT, jdbcType=VARCHAR},
+			#{prtecnt, mode=OUT, jdbcType=VARCHAR},
+			#{girotype, mode=OUT, jdbcType=VARCHAR},
+			#{girono, mode=OUT, jdbcType=VARCHAR},
+			#{aprvno, mode=OUT, jdbcType=VARCHAR},
+			#{fisccmpymangcd, mode=OUT, jdbcType=VARCHAR},
+			#{empextnvalswityn, mode=OUT, jdbcType=VARCHAR},
+			#{promextnvalswityn, mode=OUT, jdbcType=VARCHAR},
+			#{extncampvalswityn, mode=OUT, jdbcType=VARCHAR},
+			#{chrgcd, mode=OUT, jdbcType=VARCHAR},
+			#{chrgpersnm, mode=OUT, jdbcType=VARCHAR},
+			#{oprenvclsfcd, mode=OUT, jdbcType=VARCHAR},
+			#{sysuseyn, mode=OUT, jdbcType=VARCHAR},
+			#{migryn, mode=OUT, jdbcType=VARCHAR},
+			#{oabocd, mode=OUT, jdbcType=VARCHAR},
+			#{fisccmpyprocyn, mode=OUT, jdbcType=VARCHAR},
+			#{atmyn, mode=OUT, jdbcType=VARCHAR},
+			#{costlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{cdlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{chrglist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+    </select> 
+
+   <select id="getInf1010" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_INF_1010(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=IN, jdbcType=VARCHAR},
+			#{deptcd, mode=IN, jdbcType=VARCHAR},
+			#{areacd, mode=IN, jdbcType=VARCHAR},
+			#{dmangyn, mode=IN, jdbcType=VARCHAR},
+			#{boclsf, mode=IN, jdbcType=VARCHAR},
+			#{tel_no1, mode=IN, jdbcType=VARCHAR},
+			#{tel_no2, mode=IN, jdbcType=VARCHAR},
+			#{tel_no3, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no1, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no2, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no3, mode=IN, jdbcType=VARCHAR},
+			#{zip11, mode=IN, jdbcType=VARCHAR},
+			#{zip12, mode=IN, jdbcType=VARCHAR},
+			#{zip13, mode=IN, jdbcType=VARCHAR},
+			#{addr1, mode=IN, jdbcType=VARCHAR},
+			#{dtlsaddr1, mode=IN, jdbcType=VARCHAR},
+			#{bo_headnm, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{cntrdt, mode=IN, jdbcType=VARCHAR},
+			#{cntrexpydt, mode=IN, jdbcType=VARCHAR},
+			#{cntrstatcd, mode=IN, jdbcType=VARCHAR},
+			#{ernno, mode=IN, jdbcType=VARCHAR},
+			#{firmnm, mode=IN, jdbcType=VARCHAR},
+			#{presinm, mode=IN, jdbcType=VARCHAR},
+			#{bizcond, mode=IN, jdbcType=VARCHAR},
+			#{item, mode=IN, jdbcType=VARCHAR},
+			#{zip21, mode=IN, jdbcType=VARCHAR},
+			#{zip22, mode=IN, jdbcType=VARCHAR},
+			#{zip23, mode=IN, jdbcType=VARCHAR},
+			#{addr2, mode=IN, jdbcType=VARCHAR},
+			#{dtlsaddr2, mode=IN, jdbcType=VARCHAR},
+			#{bo_prn, mode=IN, jdbcType=VARCHAR},
+			#{bo_flnm, mode=IN, jdbcType=VARCHAR},
+			#{bo_tel_no1, mode=IN, jdbcType=VARCHAR},
+			#{bo_tel_no2, mode=IN, jdbcType=VARCHAR},
+			#{bo_tel_no3, mode=IN, jdbcType=VARCHAR},
+			#{bo_ptph_no1, mode=IN, jdbcType=VARCHAR},
+			#{bo_ptph_no2, mode=IN, jdbcType=VARCHAR},
+			#{bo_ptph_no3, mode=IN, jdbcType=VARCHAR},
+			#{bo_zip1, mode=IN, jdbcType=VARCHAR},
+			#{bo_zip2, mode=IN, jdbcType=VARCHAR},
+			#{bo_zip3, mode=IN, jdbcType=VARCHAR},
+			#{bo_addr, mode=IN, jdbcType=VARCHAR},
+			#{bo_dtlsaddr, mode=IN, jdbcType=VARCHAR},
+			#{deps_persnm, mode=IN, jdbcType=VARCHAR},
+			#{bankcd, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{deps_persnm_a, mode=IN, jdbcType=VARCHAR},
+			#{bankcd_a, mode=IN, jdbcType=VARCHAR},
+			#{acctno_a, mode=IN, jdbcType=VARCHAR},
+			#{smsnum1, mode=IN, jdbcType=VARCHAR},
+			#{jide_sms, mode=IN, jdbcType=VARCHAR},
+			#{apttothoscnt, mode=IN, jdbcType=INTEGER},
+			#{houstothoscnt, mode=IN, jdbcType=INTEGER},
+			#{shoptothoscnt, mode=IN, jdbcType=INTEGER},
+			#{offi_roomtothoscnt, mode=IN, jdbcType=INTEGER},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+   <select id="getInf1011" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_INF_1011(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{selluprccd, mode=IN, jdbcType=VARCHAR},
+			#{areauprccd, mode=IN, jdbcType=VARCHAR},
+			#{dlvwoncostcd, mode=IN, jdbcType=VARCHAR},
+			#{stetselluprccd, mode=IN, jdbcType=VARCHAR},
+			#{prtfacty, mode=IN, jdbcType=VARCHAR},
+			#{prtecnt, mode=IN, jdbcType=VARCHAR},
+			#{girotype, mode=IN, jdbcType=VARCHAR},
+			#{girono, mode=IN, jdbcType=VARCHAR},
+			#{atmyn, mode=IN, jdbcType=VARCHAR},
+			#{aprvno, mode=IN, jdbcType=VARCHAR},
+			#{fisccmpymangcd, mode=IN, jdbcType=VARCHAR},
+			#{fisccmpyprocyn, mode=IN, jdbcType=VARCHAR},
+			#{empextnvalswityn, mode=IN, jdbcType=VARCHAR},
+			#{promextnvalswityn, mode=IN, jdbcType=VARCHAR},
+			#{extncampvalswityn, mode=IN, jdbcType=VARCHAR},
+			#{chrgcd, mode=IN, jdbcType=VARCHAR},
+			#{oprenvclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{sysuseyn, mode=IN, jdbcType=VARCHAR},
+			#{migryn, mode=IN, jdbcType=VARCHAR},
+			#{oabocd, mode=IN, jdbcType=VARCHAR},
+			#{splycostclsfcd, mode=IN, jdbcType=VARCHAR},
+			#{splyamt, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+    </select> 
+
+	<!-- 지국정보 -->
+	<select id="getInf1101" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_1101(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{deptcd, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{bo_headnm, mode=IN, jdbcType=VARCHAR},
+			#{cntrstatcd, mode=IN, jdbcType=VARCHAR},
+			#{cntrdt_from, mode=IN, jdbcType=VARCHAR},
+			#{cntrdt_to, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{boheadnmcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getInf1102" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_1102(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR},
+			#{bo_headnm, mode=OUT, jdbcType=VARCHAR},
+			#{prn, mode=OUT, jdbcType=VARCHAR},
+			#{lastschir, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no1, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no2, mode=OUT, jdbcType=VARCHAR},
+			#{tel_no3, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no1, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no2, mode=OUT, jdbcType=VARCHAR},
+			#{ptph_no3, mode=OUT, jdbcType=VARCHAR},
+			#{cntrdt, mode=OUT, jdbcType=VARCHAR},
+			#{cntrexpydt, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=OUT, jdbcType=VARCHAR},
+			#{zip2, mode=OUT, jdbcType=VARCHAR},
+			#{zip3, mode=OUT, jdbcType=VARCHAR},
+			#{addr, mode=OUT, jdbcType=VARCHAR},
+			#{dtlsaddr, mode=OUT, jdbcType=VARCHAR},
+			#{bo_headphot, mode=OUT, jdbcType=
+			#{hby, mode=OUT, jdbcType=VARCHAR},
+			#{spc, mode=OUT, jdbcType=VARCHAR},
+			#{relg, mode=OUT, jdbcType=VARCHAR},
+			#{drink, mode=OUT, jdbcType=VARCHAR},
+			#{smok, mode=OUT, jdbcType=VARCHAR},
+			#{familylist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{careerlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{idealist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{tellist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{hplist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{schlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{photnm, mode=OUT, jdbcType=VARCHAR},
+			#{email, mode=OUT, jdbcType=VARCHAR},
+			#{g_tel_no1, mode=OUT, jdbcType=VARCHAR},
+			#{g_tel_no2, mode=OUT, jdbcType=VARCHAR},
+			#{g_tel_no3, mode=OUT, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getInf1103" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_1103(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{idealist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getInf1110" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_1110(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{boseq, mode=IN, jdbcType=VARCHAR},
+			#{bo_headnm, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{lastschir, mode=IN, jdbcType=VARCHAR},
+			#{nativ, mode=IN, jdbcType=VARCHAR},
+			#{tel_no1, mode=IN, jdbcType=VARCHAR},
+			#{tel_no2, mode=IN, jdbcType=VARCHAR},
+			#{tel_no3, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no1, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no2, mode=IN, jdbcType=VARCHAR},
+			#{ptph_no3, mode=IN, jdbcType=VARCHAR},
+			#{cntrdt, mode=IN, jdbcType=VARCHAR},
+			#{cntrexpydt, mode=IN, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{addr, mode=IN, jdbcType=VARCHAR},
+			#{dtlsaddr, mode=IN, jdbcType=VARCHAR},
+			#{bo_headphot, mode=IN, jdbcType=
+			#{hby, mode=IN, jdbcType=VARCHAR},
+			#{spc, mode=IN, jdbcType=VARCHAR},
+			#{relg, mode=IN, jdbcType=VARCHAR},
+			#{drink, mode=IN, jdbcType=VARCHAR},
+			#{smok, mode=IN, jdbcType=VARCHAR},
+			#{flnm, mode=IN, jdbcType=VARCHAR},
+			#{rshp, mode=IN, jdbcType=VARCHAR},
+			#{famlprn, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{yymm, mode=IN, jdbcType=VARCHAR},
+			#{hstymatt, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{email, mode=IN, jdbcType=VARCHAR},
+			#{phot_del, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getInf1115" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_1115(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{seq, mode=IN, jdbcType=VARCHAR},
+			#{makepersnm, mode=IN, jdbcType=VARCHAR},
+			#{idea, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 관할지국조정 -->
+	<select id="getInf3201" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_3201(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{deptcd, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{procstat, mode=IN, jdbcType=VARCHAR},
+			#{dateclsf, mode=IN, jdbcType=VARCHAR},
+			#{from, mode=IN, jdbcType=VARCHAR},
+			#{to, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getInf3202" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_3202(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{regdt, mode=IN, jdbcType=VARCHAR},
+			#{regno, mode=IN, jdbcType=VARCHAR},
+			#{trsfbonm, mode=OUT, jdbcType=VARCHAR},
+			#{acptbonm, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getInf3203" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_3203(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{regdt, mode=IN, jdbcType=VARCHAR},
+			#{regno, mode=IN, jdbcType=VARCHAR},
+			#{medabasidt, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getInf3210" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_INF_3210(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{keys, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+
+
+</mapper>  

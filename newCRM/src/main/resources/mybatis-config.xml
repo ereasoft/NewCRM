@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> 
+     <settings>
+     <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    <mappers>
+        <mapper resource="mapper/common.xml"/>
+        <mapper resource="mapper/sample.xml"/>
+        <mapper resource="mapper/rdr.xml"/>
+        <mapper resource="mapper/T110.xml"/>
+        <mapper resource="mapper/adc.xml"/>
+    </mappers> 
+</configuration> 

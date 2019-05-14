@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html manifest="">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+   <style>
+      .toolbar-displayfield {top:4px}
+   </style>
+    <title>hkCRM</title>
+    
+    <style>
+    .cell-editing-delete-row:before {
+    font: 18px/1 FontAwesome;
+    color: #dd6550;
+    content: "\f056";
+}
+    </style>
+    
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
+    <script type="text/javascript"> 
+    
+    //소프트콘 연동 설정
+    var neo_ip = "127.0.0.1";
+	var neo_port = "13012";
+	var neo_ws;
+
+    var sendPhone = '07087076102'; 
+    var callPhone = '';
+    var oldCallPhone = '';  
+    var arsOK = false;
+    var arsFlag = false;
+    var arsMsg = "";
+    var wsCon = false;
+    
+    var arsTask;
+    //끝
+    
+    var neo_fnRPad = function(digit, size, attatch) {
+		   var add = "";
+		   digit = digit.toString();
+		   
+		   if (digit.length < size) {
+			   var len = size - digit.length;
+			   for (var i = 0; i < len; i++) {
+				   add += attatch;
+			   }
+		   }
+		   return digit + add;
+		};
+    
+    function wsConnect() {		 
+    	 
+			
+    	if(neo_ws instanceof WebSocket == false) {
+			//alert("소프트콘 실행확인!!"); 
+		}
+		// neo_ws가 WebSocket 객체인데, 서버와 연결이 안됐을 때
+		else if(neo_ws.readyState != WebSocket.OPEN) {
+		//	alert("소프트콘 연동 실패"); 
+		}
+		else {
+			return;
+		} 
+		
+    	neo_ws = new WebSocket("ws://" + neo_ip + ":" + neo_port);
+    	
+			// 웹소켓 연결될 때 발생하는 이벤트
+			neo_ws.onopen = function(e) {
+				wsCon = true;
+			}
+			
+			// 웹소켓 종료될 때 발생하는 이벤트.
+			neo_ws.onclose = function(e) {
+				wsCon = false;
+			}	
+			
+			// 웹소켓 에러 발생시 실행
+			neo_ws.onerror = function(e) {
+				var errStr = "websocket error : " + e.data;
+				wsCon = false;
+				alert(errStr);
+			}
+			
+			// 웹소켓 서버로부터 데이터를 받으면 실행
+			neo_ws.onmessage = function(e) {		 
+				
+				var apiNo = '';
+		    	 if(e.data.length > 0){
+		    		 apiNo = e.data.substring(5,9);
+		    		 if(apiNo == '0227') callPhone = e.data.substring(14,34).split(' ').join('');
+		    		 //부분녹취결과수신시
+		    		 if(apiNo == '0445') {
+		    			if(e.data.substr(9,1) == '1') {
+		    				arsOK = true;
+		    				arsMsg = '인증성공';
+		    			}else{
+		    				arsOK = false;
+		    				var err = e.data.substr(10,4);
+		    				switch(err){
+		    				  case 'E000':
+		    					  arsMsg = '통화실패'; 
+		    					  neo_ws.send('000090122');
+		    					  break;
+		    				  case 'E001':
+		    					  arsMsg = '동의실패'; 
+		    					  neo_ws.send('000090122');
+		    					  break;
+		    				  case 'E002':
+		    					  arsMsg = '인증번호입력실패';
+		    					  break;
+		    				  case 'E003':
+		    					  arsMsg = '개인식별번호입력실패';
+		    					  break;
+		    				} 
+		    			} 
+		    			 arsFlag = true; 
+		    		 }
+		    	 }
+				
+				//console.log(e.data);
+								
+				/*************************************************************************************************
+				* value name    : e.data		
+				* discription   : 이 변수가 서버로부터 받는 전문 문자열 입니다.
+				                  현재 받은 전문 문자열이 어떤 의미가 있는지는
+								  인터페이스 정의서에 상세히 나와 있습니다.
+				**************************************************************************************************/
+			}			
+		}
+		
+		/** 끊기 **/
+		function wsClose() {
+			if(neo_ws instanceof WebSocket == false)
+				return;
+			if(neo_ws.readyState == WebSocket.OPEN)
+				neo_ws.close();
+		}
+    
+		/** 전화걸기 **/
+		function wsSend(phone) {
+			
+			wsConnect();
+			setTimeout(function() {
+				 if(wsCon == true){
+						// 전화할 번호, 상대방에게 보여질 번호를 이용하여 전문 작성
+						var text = "000490117" + neo_fnRPad(phone, 20, " ") + neo_fnRPad(sendPhone, 20, " "); 
+						neo_ws.send(text);
+		            }
+				}, 50);
+           
+		}
+		
+		/** 부분녹취 **/
+		function wsARS(wav,arsinfo) {
+			arsFlag = false;
+			arsOK = false;
+			wsConnect();
+			setTimeout(function() {
+				 if(wsCon == true){ 
+						var text = "0009204421" + neo_fnRPad(wav, 64, " ") + neo_fnRPad(arsinfo, 128, " "); 
+						neo_ws.send(text);
+		            }
+				}, 50); 
+		}
+		
+		/** 부분녹취  **/
+		function wsCallEnd() {
+			neo_ws.send('000090122');
+		}
+		
+		
+    
+    
+    function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	          results = regex.exec(url);
+	    if(results != null) {
+	    	return results[2];
+	    }else{
+	    	return null;
+	    } 
+	} 
+       var tm_flag = false;
+       
+       var loginID = 'tester';
+       var loginNm = '테스터';
+       var sessionkey = "";
+       var type = 'ssl'; 
+
+       var tmFull = 'N'; 
+       
+       if(sessionStorage.getItem("loginID") != null)  loginID = sessionStorage.getItem("loginID") ;
+       if(sessionStorage.getItem("loginNm") != null)  loginNm = sessionStorage.getItem("loginNm") ;
+       
+       if(getParameterByName("loginID") != null) {
+    	   loginID = getParameterByName("loginID");
+       }
+       if(getParameterByName("loginNm") != null){
+    	   loginNm = getParameterByName("loginNm");
+       } 
+       if(getParameterByName("tmFull") != null) 
+       {
+    	   tmFull = getParameterByName("tmFull");  
+       } 
+        
+       
+        var Ext = Ext || {}; // Ext namespace won't be defined yet...
+
+        // This function is called by the Microloader after it has performed basic
+        // device detection. The results are provided in the "tags" object. You can
+        // use these tags here or even add custom tags. These can be used by platform
+        // filters in your manifest or by platformConfig expressions in your app.
+        //
+        Ext.beforeLoad = function (tags) {
+            var s = location.search,  // the query string (ex "?foo=1&bar")
+                profile;
+
+            // For testing look for "?classic" or "?modern" in the URL to override
+            // device detection default.
+            //
+            if (s.match(/\bclassic\b/)) {
+                profile = 'classic';
+            }
+            else if (s.match(/\bmodern\b/)) {
+                profile = 'modern';
+            }
+            else {
+                profile = tags.desktop ? 'classic' : 'modern';
+                //profile = tags.phone ? 'modern' : 'classic';
+            }
+
+            Ext.manifest = profile; // this name must match a build profile name
+
+            // This function is called once the manifest is available but before
+            // any data is pulled from it.
+            //
+            //return function (manifest) {
+                // peek at / modify the manifest object
+            //};
+        };
+    </script>
+
+    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <script id="microloader" data-app="5d2cf319-75c1-4bff-afec-6dd90e5e484c" type="text/javascript" src="bootstrap.js"></script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.AdmMapper">
+  
+
+	<!-- 시스템관리 - 공통코드  -->
+	<select id="getAdm1000" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1000(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobclsflist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{cdclsflist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1001" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdval, mode=IN, jdbcType=VARCHAR},
+			#{cdnm, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+	 
+	<select id="getAdm1002" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1002(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdval, mode=IN, jdbcType=VARCHAR},
+			#{cdnm, mode=OUT, jdbcType=VARCHAR},
+			#{cdabrvnm, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem1, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem2, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem3, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem4, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem5, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem6, mode=OUT, jdbcType=VARCHAR},
+			#{mangitem7, mode=OUT, jdbcType=VARCHAR},
+			#{useyn, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+	 
+	<select id="getAdm1010" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1010(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{jobclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdclsf, mode=IN, jdbcType=VARCHAR},
+			#{cdval, mode=IN, jdbcType=VARCHAR},
+			#{cdnm, mode=IN, jdbcType=VARCHAR},
+			#{cdabrvnm, mode=IN, jdbcType=VARCHAR},
+			#{mangitem1, mode=IN, jdbcType=VARCHAR},
+			#{mangitem2, mode=IN, jdbcType=VARCHAR},
+			#{mangitem3, mode=IN, jdbcType=VARCHAR},
+			#{mangitem4, mode=IN, jdbcType=VARCHAR},
+			#{mangitem5, mode=IN, jdbcType=VARCHAR},
+			#{mangitem6, mode=IN, jdbcType=VARCHAR},
+			#{mangitem7, mode=IN, jdbcType=VARCHAR},
+			#{useyn, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 계정코드  -->
+	<select id="getAdm1201" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1201(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{imptexpnclsf, mode=IN, jdbcType=VARCHAR},
+			#{acctcd, mode=IN, jdbcType=VARCHAR},
+			#{acctnm, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1202" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1202(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{acctcd, mode=IN, jdbcType=VARCHAR},
+			#{imptexpnclsf, mode=IN, jdbcType=VARCHAR},
+			#{acctnm, mode=OUT, jdbcType=VARCHAR},
+			#{imptexpnclsf, mode=OUT, jdbcType=VARCHAR},
+			#{acctmclscd, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{curlist2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1203" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1203(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{imptexpnclsf, mode=IN, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1210" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1210(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{acctcd, mode=IN, jdbcType=VARCHAR},
+			#{acctnm, mode=IN, jdbcType=VARCHAR},
+			#{imptexpnclsf, mode=IN, jdbcType=VARCHAR},
+			#{acctmclscd, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 우편번호 - 지번주소	 -->
+	<select id="getAdm1301" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1301(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{addr3, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1302" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1302(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1310" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1310(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{zip4, mode=IN, jdbcType=VARCHAR},
+			#{addr1, mode=IN, jdbcType=VARCHAR},
+			#{addr2, mode=IN, jdbcType=VARCHAR},
+			#{addr3, mode=IN, jdbcType=VARCHAR},
+			#{isld, mode=IN, jdbcType=VARCHAR},
+			#{largedlvplac, mode=IN, jdbcType=VARCHAR},
+			#{bgnetno, mode=IN, jdbcType=VARCHAR},
+			#{endetno, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1320" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1320(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 우편번호 - 도로명주소 -->
+	<select id="getAdm2601" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2601(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{drm, mode=IN, jdbcType=VARCHAR},
+			#{fr_bldgno, mode=IN, jdbcType=VARCHAR},
+			#{to_bldgno, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+	 
+	<select id="getAdm2602" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2602(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{addr1, mode=OUT, jdbcType=VARCHAR},
+			#{addr2, mode=OUT, jdbcType=VARCHAR},
+			#{addr3, mode=OUT, jdbcType=VARCHAR},
+			#{drm, mode=OUT, jdbcType=VARCHAR},
+			#{bldgno1, mode=OUT, jdbcType=VARCHAR},
+			#{bldgno2, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=OUT, jdbcType=VARCHAR},
+			#{bonm, mode=OUT, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2610" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2610(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{zip1, mode=IN, jdbcType=VARCHAR},
+			#{zip2, mode=IN, jdbcType=VARCHAR},
+			#{zip3, mode=IN, jdbcType=VARCHAR},
+			#{fr_bldgno, mode=IN, jdbcType=VARCHAR},
+			#{to_bldgno, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+	 
+	 <!-- 시스템관리 - 권한관리 - 메뉴  -->
+	<select id="getAdm1801" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1801(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{sys, mode=IN, jdbcType=VARCHAR},
+			#{menuno, mode=IN, jdbcType=VARCHAR},
+			#{menunm, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1802" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1802(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{sys, mode=IN, jdbcType=VARCHAR},
+			#{menuno, mode=IN, jdbcType=VARCHAR},
+			#{sys, mode=OUT, jdbcType=VARCHAR},
+			#{suprmenu, mode=OUT, jdbcType=VARCHAR},
+			#{menunm, mode=OUT, jdbcType=VARCHAR},
+			#{pgmno, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR},
+			#{useyn, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1803" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1803(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{sys, mode=IN, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1810" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1810(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{menuno, mode=IN, jdbcType=VARCHAR},
+			#{h_menuno, mode=IN, jdbcType=VARCHAR},
+			#{sys, mode=IN, jdbcType=VARCHAR},
+			#{suprmenu, mode=IN, jdbcType=VARCHAR},
+			#{menunm, mode=IN, jdbcType=VARCHAR},
+			#{pgmno, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{useyn, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 권한관리 - 업무그룹  -->
+	<select id="getAdm1901" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1901(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobgrpnm, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1902" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1902(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpnm, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1904" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1904(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{menuno, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1910" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1910(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpnm, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getAdm1911" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_1911(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{menuno, mode=IN, jdbcType=VARCHAR},
+			#{usecmpc, mode=IN, jdbcType=VARCHAR},
+			#{incmgcmpc, mode=IN, jdbcType=VARCHAR},
+			#{brwscmpc, mode=IN, jdbcType=VARCHAR},
+			#{updcmpc, mode=IN, jdbcType=VARCHAR},
+			#{delcmpc, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 권한관리 - 사용자 -->
+	<select id="getAdm2000" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2000(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{deptlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2001" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{dept, mode=IN, jdbcType=VARCHAR},
+			#{use_persnm, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2002" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2002(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{id, mode=IN, jdbcType=VARCHAR},
+			#{pswd, mode=OUT, jdbcType=VARCHAR},
+			#{use_persnm, mode=OUT, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=OUT, jdbcType=VARCHAR},
+			#{emp_no, mode=OUT, jdbcType=VARCHAR},
+			#{dept, mode=OUT, jdbcType=VARCHAR},
+			#{hdptcd, mode=OUT, jdbcType=VARCHAR},
+			#{posi, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=OUT, jdbcType=VARCHAR},
+			#{macaddr1, mode=OUT, jdbcType=VARCHAR},
+			#{macaddr2, mode=OUT, jdbcType=VARCHAR},
+			#{macaddr3, mode=OUT, jdbcType=VARCHAR},
+			#{usepccnt, mode=OUT, jdbcType=VARCHAR},
+			#{passwdtry, mode=OUT, jdbcType=VARCHAR},
+			#{lastlogindt, mode=OUT, jdbcType=VARCHAR},
+			#{useyn, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2010" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2010(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{id, mode=IN, jdbcType=VARCHAR},
+			#{pswd, mode=IN, jdbcType=VARCHAR},
+			#{use_persnm, mode=IN, jdbcType=VARCHAR},
+			#{jobgrpcd, mode=IN, jdbcType=VARCHAR},
+			#{emp_no, mode=IN, jdbcType=VARCHAR},
+			#{dept, mode=IN, jdbcType=VARCHAR},
+			#{hdptcd, mode=IN, jdbcType=VARCHAR},
+			#{posi, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{macaddr1, mode=IN, jdbcType=VARCHAR},
+			#{macaddr2, mode=IN, jdbcType=VARCHAR},
+			#{macaddr3, mode=IN, jdbcType=VARCHAR},
+			#{usepccnt, mode=IN, jdbcType=VARCHAR},
+			#{passwdtry, mode=IN, jdbcType=VARCHAR},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{useyn, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 지국마감 -->
+	<select id="getAdm2101" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2101(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{bocd_txt, mode=IN, jdbcType=VARCHAR},
+			#{yymm, mode=IN, jdbcType=VARCHAR},
+			#{closyn, mode=IN, jdbcType=VARCHAR},
+			#{bocd_gbn, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2110" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2110(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd_arg, mode=IN, jdbcType=VARCHAR},
+			#{basiyymm_arg, mode=IN, jdbcType=VARCHAR},
+			#{closfrdt_arg, mode=IN, jdbcType=VARCHAR},
+			#{clostodt_arg, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getAdm2120" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SS_ADM_2120(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{bocd_arg, mode=IN, jdbcType=VARCHAR},
+			#{boseq_arg, mode=IN, jdbcType=VARCHAR},
+			#{basiyymm_arg, mode=IN, jdbcType=VARCHAR},
+			#{closfrdt_arg, mode=IN, jdbcType=VARCHAR},
+			#{clostodt_arg, mode=IN, jdbcType=VARCHAR},
+			#{pre_yymm_arg, mode=IN, jdbcType=VARCHAR},
+			#{nxt_yymm_arg, mode=IN, jdbcType=VARCHAR},
+			#{unrcpcrteyn, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<!-- 시스템관리 - 구역코드 -->
+	<select id="getBsc1401" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SL_BSC_1401(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{teamcd, mode=IN, jdbcType=VARCHAR},
+			#{dstccd, mode=IN, jdbcType=VARCHAR},
+			#{dstcnm, mode=IN, jdbcType=VARCHAR},
+			#{pageno, mode=IN, jdbcType=INTEGER},
+			#{pagesize, mode=IN, jdbcType=INTEGER},
+			#{totalcnt, mode=OUT, jdbcType=INTEGER},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+	 ) }
+	 </select> 
+
+	<select id="getBsc1402" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SL_BSC_1402(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{dstccd, mode=IN, jdbcType=VARCHAR},
+			#{teamcd, mode=OUT, jdbcType=VARCHAR},
+			#{dstcnm, mode=OUT, jdbcType=VARCHAR},
+			#{apthoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{villahoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{offiroomhoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{shophoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{houshoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{etchoscnt, mode=OUT, jdbcType=VARCHAR},
+			#{remk, mode=OUT, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+	<select id="getBsc1410" parameterType="hashmap" statementType="CALLABLE">
+	{ CALL NEWP_SL_BSC_1410(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{mode, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{dstccd, mode=IN, jdbcType=VARCHAR},
+			#{dstcnm, mode=IN, jdbcType=VARCHAR},
+			#{teamcd, mode=IN, jdbcType=VARCHAR},
+			#{apthoscnt, mode=IN, jdbcType=INTEGER},
+			#{houshoscnt, mode=IN, jdbcType=INTEGER},
+			#{shophoscnt, mode=IN, jdbcType=INTEGER},
+			#{offiroomhoscnt, mode=IN, jdbcType=INTEGER},
+			#{remk, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR}
+	 ) }
+	 </select> 
+
+
+
+</mapper>  

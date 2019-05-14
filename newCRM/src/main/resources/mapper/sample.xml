@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.SampleMapper">
+
+ <select id="getSampleList" parameterType="hashmap" resultType="hashmap">
+  SELECT rdr_no, rdrnm, dlvaddr, dlvdtlsaddr
+  FROM t107
+  where 1 = 1
+  <if test="rdr_no != null">
+ and  rdr_no = #{rdr_no}
+ </if>
+ <if test="rdr_no == null">
+ and  rownum <![CDATA[<=]]> 100
+ </if>
+ </select> 
+ 
+</mapper>  

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.T110Mapper"> 
+<select id="getT110List" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1051(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},  
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER},  
+      		#{currdrlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 },
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1052" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1052(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{regdt, mode=IN, jdbcType=VARCHAR},
+      		#{regno, mode=IN, jdbcType=VARCHAR},  
+      		#{dsctcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) }
+ </select> 
+ 
+  <select id="getCoAT110" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_CO_A_T110(
+            #{errcode, mode=OUT, jdbcType=VARCHAR},  
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}, 
+      		#{accflag, mode=IN, jdbcType=VARCHAR},  
+      		#{userflag, mode=IN, jdbcType=VARCHAR},  
+      		#{regdt, mode=INOUT , jdbcType=VARCHAR},  
+      		#{regno, mode=INOUT, jdbcType=VARCHAR},  
+      		#{dscttypecd, mode=IN, jdbcType=VARCHAR},  
+      		#{acpnpathcd, mode=IN, jdbcType=VARCHAR},  
+      		#{bocd, mode=IN, jdbcType=VARCHAR},  
+      		#{boseq, mode=IN, jdbcType=VARCHAR},  
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{medicd, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrnm, mode=IN, jdbcType=VARCHAR},  
+      		#{prn, mode=IN, jdbcType=VARCHAR},  
+      		#{rdremail, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no1, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no2, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no3, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no1, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no2, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no3, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip1, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip2, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip3, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvaddr, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvdtlsaddr, mode=IN, jdbcType=VARCHAR},  
+      		#{titl, mode=IN, jdbcType=VARCHAR},  
+      		#{cont, mode=IN, jdbcType=VARCHAR},  
+      		#{boproccont, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empcnfmid, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empcnfmflnm, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empcnfmyn, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empcnfmremk, mode=IN, jdbcType=VARCHAR},  
+      		#{proccont, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empacpnid, mode=IN, jdbcType=VARCHAR},  
+      		#{cns_empacpnflnm, mode=IN, jdbcType=VARCHAR},  
+      		#{onmbrid, mode=IN, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+ 
+ 
+ 
+</mapper>  

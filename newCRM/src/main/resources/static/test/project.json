@@ -1,0 +1,24 @@
+{
+    "framework": "jasmine",
+    "libs": [],
+    "coverageFilters": [],
+    "scenarios": [
+        {
+            "libs": [
+                {
+                    "disabled": false,
+                    "path": "/test/New_Scenario_1/lib",
+                    "type": "directory"
+                }
+            ],
+            "coverageFilters": [],
+            "webdriverContext": "webdriver",
+            "sandbox": true,
+            "globals": "*",
+            "directory": "New_Scenario_1",
+            "name": "New Scenario 1"
+        }
+    ],
+    "pageObjects": [],
+    "subjectUrl": "http://localhost:8081"
+}

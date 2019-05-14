@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.RdrMapper">
+ 
+<select id="getRdrList" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1001(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{orderby, mode=IN, jdbcType=VARCHAR},
+      		#{search_sel, mode=IN, jdbcType=VARCHAR},
+      		#{search_pttn, mode=IN, jdbcType=VARCHAR},
+      		#{search_nm, mode=IN, jdbcType=VARCHAR},
+      		#{suspyn, mode=IN, jdbcType=VARCHAR},
+      		#{rdrclsf, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},  
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER}, 
+           #{totalvalqty, mode=OUT, jdbcType=INTEGER}, 
+      		#{currdrlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) }
+ </select> 
+ 
+ 
+  <select id="getRdr1002" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1002(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{rptvmedicd, mode=OUT, jdbcType=VARCHAR }, 
+      		#{readercur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{addrcdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 }, 
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap6 }, 
+      		#{commcdcur4, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap7 }, 
+      		#{commcdcur5, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap8 }, 
+      		#{commcdcur6, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap9 }, 
+      		#{telnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap10 }, 
+      		#{ptphnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap11 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1003" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1003(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{medicd, mode=IN, jdbcType=VARCHAR }, 
+      		#{suspyn, mode=IN, jdbcType=VARCHAR }, 
+      		#{rdrmedicur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{medikindcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }, 
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 }, 
+      		#{commcdcur4, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap6 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1004" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1004(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR}, 
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvdstccd, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvno, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvintvno, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrnm, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip1, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip2, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvzip3, mode=IN, jdbcType=VARCHAR},  
+      		#{zonecode, mode=IN, jdbcType=VARCHAR},  
+      		#{bldgnum, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvaddr, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvaddr_do, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvdtlsaddr, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvbnji, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvteamcd, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvcd, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvdong, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvser_no, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvpyong, mode=IN, jdbcType=INTEGER},  
+      		#{resitypecd, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no1, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no2, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrtel_no3, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no1, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no2, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrptph_no3, mode=IN, jdbcType=VARCHAR},  
+      		#{paty_clsfcd, mode=IN, jdbcType=VARCHAR},  
+      		#{paty_clsfdtlscd, mode=IN, jdbcType=VARCHAR},  
+      		#{cashrcptissuyn, mode=IN, jdbcType=VARCHAR},  
+      		#{smstrsmobjyn, mode=IN, jdbcType=VARCHAR},  
+      		#{dlvmthdcd, mode=IN, jdbcType=VARCHAR},  
+      		#{thrw_plac, mode=IN, jdbcType=VARCHAR},  
+      		#{bidt, mode=IN, jdbcType=VARCHAR},  
+      		#{lusoclsfcd, mode=IN, jdbcType=VARCHAR},  
+      		#{weddanvydt, mode=IN, jdbcType=VARCHAR},  
+      		#{prn, mode=IN, jdbcType=VARCHAR},  
+      		#{email, mode=IN, jdbcType=VARCHAR},  
+      		#{remk, mode=IN, jdbcType=VARCHAR},  
+      		#{medicd, mode=IN, jdbcType=VARCHAR},  
+      		#{clamtmthdcd, mode=IN, jdbcType=VARCHAR},  
+      		#{clamtcyclcd, mode=IN, jdbcType=VARCHAR},
+      		#{rptv_yn, mode=IN, jdbcType=VARCHAR},
+      		#{rptvmedicd, mode=IN, jdbcType=VARCHAR},
+      		#{onmbrid, mode=IN, jdbcType=VARCHAR},
+      		#{wsj_lname, mode=IN, jdbcType=VARCHAR},
+      		#{wsj_fname, mode=IN, jdbcType=VARCHAR},
+      		#{wsj_email, mode=IN, jdbcType=VARCHAR}
+    ) }
+ </select> 
+  
+ <select id="getRdr1011" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1011(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},
+      		#{medicd, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},   
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER}, 
+      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{cursubscntrlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1012" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1012(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},
+      		#{medicd, mode=IN, jdbcType=VARCHAR},
+      		#{cntrno, mode=IN, jdbcType=VARCHAR},
+      		#{mangno, mode=IN, jdbcType=VARCHAR}, 
+      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }, 
+      		#{cursubscntrlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1013" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1013(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+            #{boseq, mode=IN, jdbcType=VARCHAR},
+            #{incmgpers, mode=IN, jdbcType=VARCHAR},
+            #{accflag, mode=IN, jdbcType=VARCHAR},
+            #{rdr_no, mode=IN, jdbcType=VARCHAR},
+            #{medicd, mode=IN, jdbcType=VARCHAR},
+            #{cntrno, mode=IN, jdbcType=VARCHAR},
+            #{mangno, mode=IN, jdbcType=VARCHAR},
+            #{extndt, mode=IN, jdbcType=VARCHAR},
+            #{extnregdt, mode=IN, jdbcType=VARCHAR},
+            #{extnregno, mode=IN, jdbcType=VARCHAR},
+            #{extntypecd, mode=IN, jdbcType=VARCHAR},
+            #{aplcpathcd, mode=IN, jdbcType=VARCHAR},
+      		#{extnpersnm, mode=IN, jdbcType=VARCHAR},
+      		#{extncost, mode=IN, jdbcType=INTEGER},
+      		#{subsfrdt, mode=IN, jdbcType=VARCHAR},
+      		#{freeyn, mode=IN, jdbcType=VARCHAR},
+      		#{valmm, mode=IN, jdbcType=VARCHAR},
+      		#{subsuprc, mode=IN, jdbcType=INTEGER},
+      		#{subsqty, mode=IN, jdbcType=INTEGER},
+      		#{dscnamt, mode=IN, jdbcType=INTEGER},
+      		#{pdlvfee, mode=IN, jdbcType=INTEGER},
+      		#{bns_itemcd, mode=IN, jdbcType=VARCHAR},
+      		#{extnpersblngcd, mode=IN, jdbcType=VARCHAR},
+      		#{stafno, mode=IN, jdbcType=VARCHAR},
+      		#{boemp_no, mode=IN, jdbcType=VARCHAR},
+      		#{clamtmthdcd, mode=IN, jdbcType=VARCHAR}, 
+      		#{clamtcyclcd, mode=IN, jdbcType=VARCHAR}, 
+      		#{remk, mode=IN, jdbcType=VARCHAR}, 
+      		#{ov_cntrno, mode=OUT, jdbcType=VARCHAR}, 
+      		#{ov_mangno, mode=OUT, jdbcType=VARCHAR}
+    ) }
+ </select> 
+ 
+ <select id="getRdr1021" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1021(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},
+      		#{medicd, mode=IN, jdbcType=VARCHAR},
+      		#{basiyymm, mode=IN, jdbcType=VARCHAR}, 
+      		#{unrcpamt, mode=OUT, jdbcType=VARCHAR},
+      		#{curryymm, mode=OUT, jdbcType=VARCHAR},
+      		#{prevyymm, mode=OUT, jdbcType=VARCHAR},
+      		#{nextyymm, mode=OUT, jdbcType=VARCHAR}, 
+      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{clamtcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{brfcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{brfcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }, 
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap6 }
+    ) }
+ </select> 
+  
+ <select id="getRdr1022" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1022(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{medicd, mode=IN, jdbcType=VARCHAR }, 
+      		#{subsmappli, mode=IN, jdbcType=VARCHAR }, 
+      		#{curryymm, mode=OUT, jdbcType=VARCHAR }, 
+      		#{realsubsamt, mode=OUT, jdbcType=VARCHAR }, 
+      		#{defaultcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{clamtcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 },  
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1023" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1023(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      		#{accflag, mode=IN, jdbcType=VARCHAR},
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{boseq, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{medicd, mode=IN, jdbcType=VARCHAR }, 
+      		#{subsmappli, mode=IN, jdbcType=VARCHAR }, 
+      		#{clamtmthdcd, mode=IN, jdbcType=VARCHAR }, 
+      		#{rcpmclsfcd, mode=IN, jdbcType=VARCHAR }, 
+      		#{clamamt, mode=IN, jdbcType=INTEGER }, 
+      		#{clamt, mode=IN, jdbcType=INTEGER }, 
+      		#{recpdt, mode=IN, jdbcType=VARCHAR }, 
+      		#{incmgpers, mode=IN, jdbcType=VARCHAR }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1031" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1031(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},
+      		#{medicd, mode=IN, jdbcType=VARCHAR},  
+      		#{rdrmedicur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }
+    ) }
+ </select> 
+ 
+  <select id="getRdr1032" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1032(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},
+      		#{medicd, mode=IN, jdbcType=VARCHAR},
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},   
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER},  
+      		#{rdrsuspcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) }
+ </select> 
+ 
+  <select id="getRdr1033" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1033(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR}, 
+            #{incmgpers, mode=IN, jdbcType=VARCHAR}, 
+            #{rdr_no, mode=IN, jdbcType=VARCHAR},
+            #{medicd, mode=IN, jdbcType=VARCHAR},
+            #{cntrno, mode=IN, jdbcType=VARCHAR},
+            #{mangno, mode=IN, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+ 
+ <select id="getRdr1034" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1034(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+            #{boseq, mode=IN, jdbcType=VARCHAR},
+            #{incmgpers, mode=IN, jdbcType=VARCHAR},
+            #{susptype, mode=IN, jdbcType=VARCHAR},
+            #{suspdt, mode=IN, jdbcType=VARCHAR},
+            #{suspresncd, mode=IN, jdbcType=VARCHAR},
+            #{rdr_no, mode=IN, jdbcType=VARCHAR},
+            #{medicd, mode=IN, jdbcType=VARCHAR},
+            #{freeyn, mode=IN, jdbcType=VARCHAR},
+            #{freeclsf, mode=IN, jdbcType=VARCHAR},
+            #{qty, mode=IN, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+   <select id="getRdr1041" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1041(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{pageno, mode=IN, jdbcType=INTEGER},
+      		#{pagesize, mode=IN, jdbcType=INTEGER},   
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER},  
+      		#{moverdrcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{telnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{ptphnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }
+    ) }
+ </select> 
+ 
+ <select id="getRdr1042" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1042(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{regdt, mode=IN, jdbcType=VARCHAR},
+      		#{regno, mode=IN, jdbcType=VARCHAR},   
+      		#{moverdrcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) }
+ </select> 
+ 
+    <select id="getRdr1043" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_CO_A_T501(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{incmgpers, mode=IN, jdbcType=VARCHAR},
+      		#{accflag, mode=IN, jdbcType=VARCHAR},  
+      		#{userflag, mode=IN, jdbcType=VARCHAR},
+      		#{regdt, mode=IN, jdbcType=VARCHAR},   
+      		#{regno, mode=IN, jdbcType=VARCHAR}, 
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{rdrnm, mode=IN, jdbcType=VARCHAR}, 
+      		#{aplcpathcd, mode=IN, jdbcType=VARCHAR}, 
+      		#{trsfbocd, mode=IN, jdbcType=VARCHAR} ,
+      		#{acptbocd, mode=IN, jdbcType=VARCHAR} ,
+      		#{movedt, mode=IN, jdbcType=VARCHAR} ,
+      		#{zip1, mode=IN, jdbcType=VARCHAR} ,
+      		#{zip2, mode=IN, jdbcType=VARCHAR} ,
+      		#{zip3, mode=IN, jdbcType=VARCHAR} ,
+      		#{addr, mode=IN, jdbcType=VARCHAR} ,
+      		#{dtlsaddr, mode=IN, jdbcType=VARCHAR} ,
+      		#{bnji, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrtel_no1, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrtel_no2, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrtel_no3, mode=IN, jdbcType=VARCHAR} , 
+      		#{movmzip1, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmzip2, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmzip3, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmaddr, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmdtlsaddr, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmbnji, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrptph_no1, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrptph_no2, mode=IN, jdbcType=VARCHAR} ,
+      		#{rdrptph_no3, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmtel_no1, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmtel_no2, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmtel_no3, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmresitype, mode=IN, jdbcType=VARCHAR} ,
+      		#{remk, mode=IN, jdbcType=VARCHAR} ,
+      		#{dlvhopedt, mode=IN, jdbcType=VARCHAR} ,
+      		#{trsfbocnfmyn, mode=IN, jdbcType=VARCHAR} ,
+      		#{trsfbocnfmstat, mode=IN, jdbcType=VARCHAR} ,
+      		#{acptbocnfmyn, mode=IN, jdbcType=VARCHAR} ,
+      		#{acptbocnfmstat, mode=IN, jdbcType=VARCHAR} ,
+      		#{acptboremk, mode=IN, jdbcType=VARCHAR} ,
+      		#{trsfboremk, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empcnfmid, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empcnfmflnm, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empcnfmyn, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empcnfmremk, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empacpnid, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empacpnflnm, mode=IN, jdbcType=VARCHAR} ,
+      		#{onmbrid, mode=IN, jdbcType=VARCHAR} ,
+      		#{pdlvyn, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmzonecode, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmaddr_do, mode=IN, jdbcType=VARCHAR} ,
+      		#{movmzipbldgnum, mode=IN, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+ 
+    <select id="getRdr1071" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1071(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) }
+ </select> 
+ 
+     <select id="getRdr1083" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_CO_A_T117(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{incmgpers, mode=IN, jdbcType=VARCHAR},
+            #{accflag, mode=IN, jdbcType=VARCHAR},
+            #{userflag, mode=IN, jdbcType=VARCHAR},
+      		#{regdt, mode=IN, jdbcType=VARCHAR},
+      		#{regno, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR}, 
+      		#{medicd, mode=IN, jdbcType=VARCHAR},
+      		#{rdrnm, mode=IN, jdbcType=VARCHAR},
+      		#{rdrtel_no1, mode=IN, jdbcType=VARCHAR},
+      		#{rdrtel_no2, mode=IN, jdbcType=VARCHAR},
+      		#{rdrtel_no3, mode=IN, jdbcType=VARCHAR},
+      		#{rdremail, mode=IN, jdbcType=VARCHAR},
+      		#{zip1, mode=IN, jdbcType=VARCHAR},
+      		#{zip2, mode=IN, jdbcType=VARCHAR},
+      		#{zip3, mode=IN, jdbcType=VARCHAR},
+      		#{addr, mode=IN, jdbcType=VARCHAR},
+      		#{dtlsaddr, mode=IN, jdbcType=VARCHAR}, 
+      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{boseq, mode=IN, jdbcType=VARCHAR},
+      		#{qty, mode=IN, jdbcType=VARCHAR},
+      		#{aplcpathcd, mode=IN, jdbcType=VARCHAR},
+      		#{temp_stopclsfcd, mode=IN, jdbcType=VARCHAR},
+      		#{suspfrdt, mode=IN, jdbcType=VARCHAR},
+      		#{susptodt, mode=IN, jdbcType=VARCHAR},
+      		#{bgnmappli, mode=IN, jdbcType=VARCHAR},
+      		#{endmappli, mode=IN, jdbcType=VARCHAR},
+      		#{dlvdt, mode=IN, jdbcType=VARCHAR},
+      		#{remk, mode=IN, jdbcType=VARCHAR},
+      		#{rdrptph_no1, mode=IN, jdbcType=VARCHAR},
+      		#{rdrptph_no2, mode=IN, jdbcType=VARCHAR},
+      		#{rdrptph_no3, mode=IN, jdbcType=VARCHAR}, 
+      		#{bocnfmyn, mode=IN, jdbcType=VARCHAR},
+      		#{boremk, mode=IN, jdbcType=VARCHAR},
+      		#{cns_empcnfmid, mode=IN, jdbcType=VARCHAR}, 
+      		#{cns_empcnfmflnm, mode=IN, jdbcType=VARCHAR}, 
+      		#{cns_empcnfmyn, mode=IN, jdbcType=VARCHAR}, 
+      		#{cns_empremk, mode=IN, jdbcType=VARCHAR} ,
+      		#{cns_empacpnid, mode=IN, jdbcType=VARCHAR}, 
+      		#{cns_empacpnflnm, mode=IN, jdbcType=VARCHAR}, 
+      		#{onmbrseq, mode=IN, jdbcType=VARCHAR}, 
+      		#{vaca_arearegncd, mode=IN, jdbcType=VARCHAR}, 
+      		#{vaca_areacd, mode=IN, jdbcType=VARCHAR}
+    ) }
+ </select> 
+ 
+ <select id="getRdr1081" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1081(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{pageno, mode=IN, jdbcType=INTEGER},   
+      		#{pagesize, mode=IN, jdbcType=INTEGER},    
+      		#{totalcnt, mode=OUT, jdbcType=INTEGER},  
+      		#{moverdrcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 },
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3}
+    ) }
+ </select> 
+ 
+ <select id="getRdr1006" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1006(
+            #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+            #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+            #{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
+      		#{rptvmedicd, mode=OUT, jdbcType=VARCHAR }, 
+      		#{readercur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }, 
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }, 
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3 }, 
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 }
+    ) }
+ </select> 
+
+ 
+</mapper>  

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.crm.mapper.CommonMapper">
+<resultMap id="hashMap" type="hashmap">
+</resultMap>
+<resultMap id="hashMap2" type="hashmap">
+</resultMap>
+<resultMap id="hashMap3" type="hashmap">
+</resultMap>
+<resultMap id="hashMap4" type="hashmap">
+</resultMap>
+<resultMap id="hashMap5" type="hashmap">
+</resultMap>
+<resultMap id="hashMap6" type="hashmap">
+</resultMap>
+<resultMap id="hashMap7" type="hashmap">
+</resultMap>
+<resultMap id="hashMap8" type="hashmap">
+</resultMap>
+<resultMap id="hashMap9" type="hashmap">
+</resultMap>
+<resultMap id="hashMap10" type="hashmap">
+</resultMap>
+<resultMap id="hashMap11" type="hashmap">
+</resultMap>
+
+<select id="getZip5Daum" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_CO_L_ZIP5_DAUM(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{bldgnum, mode=IN, jdbcType=VARCHAR},
+      	   #{bocd, mode=OUT, jdbcType=VARCHAR}
+    ) }
+ </select> 
+ 
+ <select id="getDkhtLog" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_CO_DHKT_LOG(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{userid, mode=IN, jdbcType=VARCHAR},
+      	   #{logintype, mode=IN, jdbcType=VARCHAR},
+      	   #{rowcnt, mode=IN, jdbcType=INTEGER},
+      	   #{hiscur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+    ) } 
+ </select> 
+ 
+ <select id="getSendSMS" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_CO_SENDSMS(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{msg, mode=IN, jdbcType=VARCHAR},
+      	   #{phone, mode=IN, jdbcType=VARCHAR},
+      	   #{incmgpers, mode=IN, jdbcType=VARCHAR}
+    ) }
+ </select> 
+ 
+  <select id="getLogin" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_CO_LOGIN(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{log_id, mode=IN, jdbcType=VARCHAR},
+      	   #{log_pwd, mode=IN, jdbcType=VARCHAR},
+		   #{ov_id, mode=OUT, jdbcType=VARCHAR},
+		   #{ov_pswd, mode=OUT, jdbcType=VARCHAR},
+		   #{use_persnm, mode=OUT, jdbcType=VARCHAR},
+		   #{jobgrpcd, mode=OUT, jdbcType=VARCHAR},
+		   #{cmpycd, mode=OUT, jdbcType=VARCHAR},
+		   #{emp_no, mode=OUT, jdbcType=VARCHAR},
+		   #{hdptcd, mode=OUT, jdbcType=VARCHAR},
+		   #{posi, mode=OUT, jdbcType=VARCHAR},
+		   #{deptcd, mode=OUT, jdbcType=VARCHAR},
+		   #{prn, mode=OUT, jdbcType=VARCHAR},
+		   #{deptnm, mode=OUT, jdbcType=VARCHAR},
+		   #{yyyymm, mode=OUT, jdbcType=VARCHAR},
+		   #{email, mode=OUT, jdbcType=VARCHAR} ,
+		   #{ov_guid, mode=OUT, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+ 
+   <select id="getLogincheck" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SS_CO_LOGINCHECK(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{log_id, mode=IN, jdbcType=VARCHAR},
+      	   #{iv_sessionkey, mode=IN, jdbcType=VARCHAR},
+      	   #{iv_log_type, mode=IN, jdbcType=VARCHAR},
+		   #{ov_id, mode=OUT, jdbcType=VARCHAR},
+		   #{ov_pswd, mode=OUT, jdbcType=VARCHAR},
+		   #{use_persnm, mode=OUT, jdbcType=VARCHAR},
+		   #{jobgrpcd, mode=OUT, jdbcType=VARCHAR},
+		   #{cmpycd, mode=OUT, jdbcType=VARCHAR},
+		   #{emp_no, mode=OUT, jdbcType=VARCHAR},
+		   #{hdptcd, mode=OUT, jdbcType=VARCHAR},
+		   #{posi, mode=OUT, jdbcType=VARCHAR},
+		   #{deptcd, mode=OUT, jdbcType=VARCHAR},
+		   #{prn, mode=OUT, jdbcType=VARCHAR},
+		   #{deptnm, mode=OUT, jdbcType=VARCHAR},
+		   #{yyyymm, mode=OUT, jdbcType=VARCHAR},
+		   #{email, mode=OUT, jdbcType=VARCHAR} ,
+		   #{ov_guid, mode=OUT, jdbcType=VARCHAR} 
+    ) }
+ </select> 
+ 
+ <select id="insertArsRec" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_CO_INSERT_T212ARS(
+           #{errcode, mode=OUT, jdbcType=VARCHAR}, 
+           #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
+      	   #{inforkey, mode=IN, jdbcType=VARCHAR},
+      	   #{wav, mode=IN, jdbcType=VARCHAR},
+      	   #{fileobject, mode=IN, jdbcType=BLOB}
+    ) }
+ </select> 
+ 
+</mapper>  
