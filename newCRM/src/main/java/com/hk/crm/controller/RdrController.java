@@ -593,5 +593,72 @@ public class RdrController {
 		return result;
 	}
  
+	@SuppressWarnings({ "unchecked", "rawtypes" }) //휴독
+	@RequestMapping(value="/api/rdr/getRdr1072",  method = RequestMethod.POST, headers="Accept=application/json")  
+	public  HashMap  getRdr1072(  @RequestBody String body,ModelMap model ) { 
+		HashMap result = new HashMap();
+		try { 
+			ObjectMapper mapper = new ObjectMapper(); 
+			HashMap hash = new HashMap();   
+			hash = mapper.readValue(body, new TypeReference<HashMap>(){}); 
+			
+			rdrSv.getRdr1072(hash);  
+			result.put("errcode",hash.get("errcode"));
+			result.put("errmsg",hash.get("errmsg"));
+			result.put("bocd",hash.get("bocd"));
+			result.put("rdr_no",hash.get("rdr_no"));
+			result.put("medicd",hash.get("medicd"));
+			result.put("rsltcur",hash.get("rsltcur"));
+			result.put("commcdcur1",hash.get("commcdcur1"));
+			result.put("telnocur",hash.get("telnocur"));
+			
+			result.put("status", "true");
+		} catch(Exception ex) {
+			 result.put("status", "false");
+			 result.put("errmsg", ex.getMessage());
+			 log.debug(ex.getMessage());
+		}
+		return result;
+	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" }) //휴독
+	@RequestMapping(value="/api/rdr/getRdr1073",  method = RequestMethod.POST, headers="Accept=application/json")  
+	public  HashMap  getRdr1073(  @RequestBody String body,ModelMap model ) { 
+		HashMap result = new HashMap();
+		try { 
+			ObjectMapper mapper = new ObjectMapper(); 
+			HashMap hash = new HashMap();   
+			hash = mapper.readValue(body, new TypeReference<HashMap>(){}); 
+			
+			rdrSv.getRdr1073(hash);  
+			result.put("errcode",hash.get("errcode"));
+			result.put("errmsg",hash.get("errmsg"));
+			result.put("accflag",hash.get("accflag"));
+			result.put("bocd",hash.get("bocd"));
+			result.put("incmgpers",hash.get("incmgpers"));
+			result.put("pymtnm",hash.get("pymtnm"));
+			result.put("pymttel1",hash.get("pymttel1"));
+			result.put("pymttel2",hash.get("pymttel2"));
+			result.put("pymttel3",hash.get("pymttel3"));
+			result.put("bankcd",hash.get("bankcd"));
+			result.put("acctno",hash.get("acctno"));
+			result.put("prn",hash.get("prn"));
+			result.put("aplcdt",hash.get("aplcdt"));
+			result.put("aplyyymm",hash.get("aplyyymm"));
+			result.put("email",hash.get("email"));
+			result.put("rdr_no",hash.get("rdr_no"));
+			result.put("medicd",hash.get("medicd"));
+			result.put("tmpflag",hash.get("tmpflag"));
+			result.put("aplcpathcd",hash.get("aplcpathcd"));
+			result.put("arskey",hash.get("arskey"));
+			
+			result.put("status", "true");
+		} catch(Exception ex) {
+			 result.put("status", "false");
+			 result.put("errmsg", ex.getMessage());
+			 log.debug(ex.getMessage());
+		}
+		return result;
+	}
+
 }

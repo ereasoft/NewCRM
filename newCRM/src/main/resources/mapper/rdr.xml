@@ -473,5 +473,43 @@
     ) }
  </select> 
 
+  <select id="getRdr1072" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1072(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{telnocur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+ </select> 
+ 
+  <select id="getRdr1073" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_SL_RDR_1073(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{accflag, mode=IN, jdbcType=VARCHAR},
+			#{bocd, mode=IN, jdbcType=VARCHAR},
+			#{incmgpers, mode=IN, jdbcType=VARCHAR},
+			#{pymtnm, mode=IN, jdbcType=VARCHAR},
+			#{pymttel1, mode=IN, jdbcType=VARCHAR},
+			#{pymttel2, mode=IN, jdbcType=VARCHAR},
+			#{pymttel3, mode=IN, jdbcType=VARCHAR},
+			#{bankcd, mode=IN, jdbcType=VARCHAR},
+			#{acctno, mode=IN, jdbcType=VARCHAR},
+			#{prn, mode=IN, jdbcType=VARCHAR},
+			#{aplcdt, mode=IN, jdbcType=VARCHAR},
+			#{aplyyymm, mode=IN, jdbcType=VARCHAR},
+			#{email, mode=IN, jdbcType=VARCHAR},
+			#{rdr_no, mode=IN, jdbcType=VARCHAR},
+			#{medicd, mode=IN, jdbcType=VARCHAR},
+			#{tmpflag, mode=IN, jdbcType=VARCHAR},
+			#{aplcpathcd, mode=IN, jdbcType=VARCHAR},
+			#{arskey, mode=IN, jdbcType=VARCHAR}
+    ) }
+ </select> 
+
  
 </mapper>  

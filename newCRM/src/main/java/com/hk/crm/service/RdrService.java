@@ -78,4 +78,13 @@ public class RdrService {
 	public List<HashMap> getRdr1006(HashMap params) {
 		return  rdrMapper.getRdr1006(params);
 	} 
+
+	public List<HashMap> getRdr1072(HashMap params) {
+		return  rdrMapper.getRdr1072(params);
+	}
+
+	public List<HashMap> getRdr1073(HashMap params) {
+		return  rdrMapper.getRdr1073(params);
+	}
+
 }

@@ -27,4 +27,10 @@ public List<HashMap> getRdr1071(HashMap params);
 public List<HashMap> getRdr1081(HashMap params);
 public List<HashMap> getRdr1083(HashMap params);
 public List<HashMap> getRdr1006(HashMap params);
+
+// 독자정보관리-이체신청
+public List<HashMap> getRdr1072(HashMap params);
+public List<HashMap> getRdr1073(HashMap params);
+
+
 }
