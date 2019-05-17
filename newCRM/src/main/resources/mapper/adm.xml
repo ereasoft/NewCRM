@@ -10,7 +10,7 @@
 			#{errcode, mode=OUT, jdbcType=VARCHAR},
 			#{errmsg, mode=OUT, jdbcType=VARCHAR},
 			#{jobclsflist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{cdclsflist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{cdclsflist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2}
 	 ) }
 	 </select> 
 

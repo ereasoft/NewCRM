@@ -65,7 +65,19 @@ Ext.define('hkCRM.view.main.MainView', {
             },
             items: [
             	{ xtype: 'button', text: '민원종합화면', handler:'goUrl'},
-            	{ xtype: 'button', text: '지동이체'}
+            	{ xtype: 'button', text: '지동이체'},
+            	{ 
+            		xtype: 'button', 
+            		text: '관리자',
+                    listeners: {
+                       click: {
+                          
+                           fn: 'menuClick',
+                           args: ['AdmCode', '공통코드']
+                       }
+                   }
+           	}
+            	
             ]
         },
         {

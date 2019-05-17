@@ -25,6 +25,29 @@ Ext.define('hkCRM.view.main.MainViewController', {
     	openNewWindow.location.href = url + '?tmFull=Y';
     },
     
+    menuClick: function ( xtypeNm, titleNm )
+    {
+/*        var tabs; // = Ext.getCmp( 'main' ); // .down( '#content' );
+        var id = xtypeNm;
+        var tab; // = tabs.items.getByKey( id );
+        var cfg = {
+            xtype: xtypeNm,
+            title: titleNm
+        }
+        if ( !tab )
+        {
+            cfg.itemId = id;
+            cfg.closable = true;
+            tab = tabs.add( cfg );
+        }
+        tabs.setActiveTab( tab );*/
+    	
+    	var win = Ext.create( "hkCRM.view.adm.AdmCode", {
+            title: '공통코드', height: 800, width: 1400, modal: false
+        } );
+    	win.show();
+    },
+    
     onItemSelected: function (sender, record) {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
