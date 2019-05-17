@@ -123,8 +123,8 @@
 			#{fisccmpyprocyn, mode=OUT, jdbcType=VARCHAR},
 			#{atmyn, mode=OUT, jdbcType=VARCHAR},
 			#{costlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{cdlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{chrglist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{cdlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2},
+			#{chrglist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3}
     ) }
     </select> 
 
@@ -278,11 +278,11 @@
 			#{drink, mode=OUT, jdbcType=VARCHAR},
 			#{smok, mode=OUT, jdbcType=VARCHAR},
 			#{familylist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{careerlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{idealist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{tellist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{hplist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{schlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
+			#{careerlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2},
+			#{idealist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3},
+			#{tellist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4},
+			#{hplist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5},
+			#{schlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap6},
 			#{photnm, mode=OUT, jdbcType=VARCHAR},
 			#{email, mode=OUT, jdbcType=VARCHAR},
 			#{g_tel_no1, mode=OUT, jdbcType=VARCHAR},

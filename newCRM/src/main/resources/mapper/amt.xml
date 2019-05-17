@@ -162,11 +162,11 @@
       		#{giroprt, mode=OUT, jdbcType=VARCHAR},
       		#{girono, mode=OUT, jdbcType=VARCHAR},
       		#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{commcdcur4, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{commcdcur5, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }      		      		
+      		#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 },      		
+      		#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3},      		
+      		#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap4 },      		
+      		#{commcdcur4, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap5 },      		
+      		#{commcdcur5, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap6 }      		      		
     ) }
     </select>   
 
@@ -178,7 +178,7 @@
       		#{curryymm, mode=OUT, jdbcType=VARCHAR},
       		#{giroprt, mode=OUT, jdbcType=VARCHAR},
       		#{dstccdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },      		
-      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }   		      		
+      		#{medicdcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }   		      		
     ) }
     </select>   
 
@@ -317,8 +317,8 @@
 			#{giromargin, mode=OUT, jdbcType=VARCHAR},
 			#{vistmargin, mode=OUT, jdbcType=VARCHAR},
 			#{msgcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{msgcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{msgcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{msgcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2},
+			#{msgcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3}
     ) }
     </select>   
 
@@ -434,8 +434,8 @@
 			#{errcode, mode=OUT, jdbcType=VARCHAR},
 			#{errmsg, mode=OUT, jdbcType=VARCHAR},
 			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2},
+			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3}
     ) }
     </select>   
 
@@ -726,8 +726,8 @@
 			#{errcode, mode=OUT, jdbcType=VARCHAR},
 			#{errmsg, mode=OUT, jdbcType=VARCHAR},
 			#{commcdcur1, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{commcdcur2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2},
+			#{commcdcur3, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap3}
     ) }
     </select> 
     
@@ -988,7 +988,7 @@
 			#{incmgpers, mode=IN, jdbcType=VARCHAR},
 			#{accflag, mode=IN, jdbcType=VARCHAR},
 			#{uptflag, mode=IN, jdbcType=VARCHAR},
-			#{pymtseq, mode=IN/OUT, jdbcType=VARCHAR},
+			#{pymtseq, mode=INOUT, jdbcType=VARCHAR},
 			#{shftclsf, mode=IN, jdbcType=VARCHAR},
 			#{prn, mode=IN, jdbcType=VARCHAR},
 			#{pymtnm, mode=IN, jdbcType=VARCHAR},
