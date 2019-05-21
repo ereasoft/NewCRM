@@ -27,24 +27,14 @@ Ext.define('hkCRM.view.main.MainViewController', {
     
     menuClick: function ( xtypeNm, titleNm )
     {
-/*        var tabs; // = Ext.getCmp( 'main' ); // .down( '#content' );
-        var id = xtypeNm;
-        var tab; // = tabs.items.getByKey( id );
-        var cfg = {
-            xtype: xtypeNm,
-            title: titleNm
-        }
-        if ( !tab )
-        {
-            cfg.itemId = id;
-            cfg.closable = true;
-            tab = tabs.add( cfg );
-        }
-        tabs.setActiveTab( tab );*/
+
     	
     	var win = Ext.create( "hkCRM.view.adm.AdmCode", {
             title: '공통코드', height: 800, width: 1400, modal: false
         } );
+    	
+    	//win.lookupReference('jobcls').getStore().loadData(obj.jobclsflist); 
+    	
     	win.show();
     },
     

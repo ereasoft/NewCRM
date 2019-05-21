@@ -8,8 +8,7 @@ Ext.define('hkCRM.Application', {
 
     name: 'hkCRM',
 
-    stores: [
-    	 
+    stores: [ 
     ], 
     
     quickTips: false,

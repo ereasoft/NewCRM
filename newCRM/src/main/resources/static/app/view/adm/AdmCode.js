@@ -1,7 +1,7 @@
 Ext.define('hkCRM.view.adm.AdmCode', {
     extend: 'Ext.window.Window', //'Ext.container.Viewport',
-    alias: 'AdmCode',
-    xtype: 'AdmCode',
+    alias: 'AdmCode1',
+    xtype: 'AdmCode1',
 
     requires: [
         /*'adm1.view.MainViewViewModel',*/
@@ -13,13 +13,15 @@ Ext.define('hkCRM.view.adm.AdmCode', {
         'Ext.grid.column.Boolean',
         'Ext.view.Table',
         'Ext.grid.property.Grid',
-        'hkCRM.view.adm.AdmCodeController'
+        'hkCRM.view.adm.AdmCodeController',
+        'hkCRM.store.AdmCode1001St'
+        
     ],
 
 /*    viewModel: {
         type: 'admcode'
     },*/
-    itemId: 'AdmCode',
+    itemId: 'AdmCode2',
     layout: 'border',
     controller: 'AdmCode',  
     
@@ -44,13 +46,20 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                 {
                     xtype: 'combobox',
                     name: 'jobcls', 
+                    reference: 'jobcls',
                     dock: 'left',
                     fieldLabel: '업무구분',
                     labelAlign: 'right',
                     labelWidth: 60,
             		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
-        		    minChars: 0, queryMode: 'local', typeAhead: true, 
-            		store: {xtype:'AdmCode'}
+        		    minChars: 0, queryMode: 'remote', typeAhead: true, 
+            		store: {xtype:'AdmCodeSt'}
+                },
+                { 
+            		 xtype:'combobox', fieldLabel: '업무구분', name: 'jobcls' , width:120,reference: 'jobcls2',
+            		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
+				    minChars: 0, queryMode: 'local', typeAhead: true, 
+            		store: {xtype:'AdmCodeSt'}
                 },
                 {
                     xtype: 'combobox',
@@ -77,7 +86,14 @@ Ext.define('hkCRM.view.adm.AdmCode', {
             items: [
                 {
                     xtype: 'button',
-                    text: '조회'
+                    text: '조회',
+                    listeners: {
+                        click: {
+                           
+                            fn: 'btnClick',
+                           
+                        }
+                    }
                 },
                 {
                     xtype: 'button',
@@ -97,6 +113,9 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                 {
                     xtype: 'gridpanel',
                     title: '',
+                    store: {
+                      //  type: 'AdmCode1001St'  
+                    },
                     columns: [
                         {
                             xtype: 'rownumberer'
@@ -143,10 +162,20 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     xtype: 'propertygrid',
                     title: '',
                     source: {
-                        'Property 1': 'String',
-                        'Property 2': true,
-                        'Property 3': '2019-05-16T14:19:25',
-                        'Property 4': 123
+                        '업무구분': '',
+                        '코드구분': '',
+                        '코드값': '',
+                        '코드명': '',
+                        '약어명': '',
+                        '관리항목1': '',
+                        '관리항목2': '',
+                        '관리항목3': '',
+                        '관리항목4': '',
+                        '관리항목5': '',
+                        '관리항목6': '',
+                        '관리항목7': '',
+                        '사용구분': '',
+                        '비고': ''
                     }
                 }
             ]

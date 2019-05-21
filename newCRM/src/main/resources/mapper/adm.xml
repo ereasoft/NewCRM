@@ -99,7 +99,7 @@
 			#{acctmclscd, mode=OUT, jdbcType=VARCHAR},
 			#{remk, mode=OUT, jdbcType=VARCHAR},
 			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{curlist2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{curlist2, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2}
 	 ) }
 	 </select> 
 
@@ -357,7 +357,7 @@
 			#{errcode, mode=OUT, jdbcType=VARCHAR},
 			#{errmsg, mode=OUT, jdbcType=VARCHAR},
 			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap},
-			#{deptlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+			#{deptlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2}
 	 ) }
 	 </select> 
 
