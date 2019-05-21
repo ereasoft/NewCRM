@@ -6,7 +6,7 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
    
     init: function(){ 
 
-    	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
+/*    	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
             url: '/api/Adm/getAdm1000',
             method: 'POST',
             headers: {
@@ -22,9 +22,9 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
                 if ( obj.status == 'true' )
                 {    
                     var obj = Ext.decode( response.responseText ); 
-                   	 var frm = this.getform();
+                   	// var frm = this.items.items[0].getForm();
                 
-                   	 frm.findField('jobcls').getStore().loadData(obj.jobclsflist);    
+                   	this.lookupReference('jobcls').getStore().loadData(obj.jobclsflist);    
                 }
                 	
                      
@@ -38,7 +38,7 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
             {
                 Ext.Msg.alert( 'System Error', response.status, function () { return false; } );
             }
-        } );
+        } );*/
     	
     	
     }, 
@@ -51,6 +51,40 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
 	   if (e.getKey() == e.ENTER)  this.searchRdr();
    },
    
+   
+   btnClick: function ( )
+   {
+	   Ext.Ajax.request
+	   ( {   //업무구분과 코드구분 콤보 조회
+	       url: '/api/Adm/getAdm1001',
+	       method: 'POST',
+	       headers: {
+	           'Content-Type': 'application/json', 
+	       },  
+	       jsonData: {
+	           loginID:loginID,
+				sessionkey: sessionkey
+	       },
+	       success: function ( response, opts )
+	       { 
+	       	 var obj = Ext.decode( response.responseText ); 
+	           if ( obj.status == 'true' )
+	           {    
+	               var obj = Ext.decode( response.responseText ); 
+	           }                
+	           else
+	           {
+	               Ext.Msg.alert( 'Failed', obj.errmsg, function () { return false; } );
+	           }
+	       },
+	
+	       failure: function ( response, opts )
+	       {
+	           Ext.Msg.alert( 'System Error', response.status, function () { return false; } );
+	       }
+	   } );   	
+   
+   }
 
     
 });

@@ -44,6 +44,7 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                 {
                     xtype: 'combobox',
                     name: 'jobcls', 
+                    reference: 'jobcls',
                     dock: 'left',
                     fieldLabel: '업무구분',
                     labelAlign: 'right',
@@ -77,7 +78,14 @@ Ext.define('hkCRM.view.adm.AdmCode', {
             items: [
                 {
                     xtype: 'button',
-                    text: '조회'
+                    text: '조회',
+                    listeners: {
+                        click: {
+                           
+                            fn: 'btnClick',
+                           
+                        }
+                    }
                 },
                 {
                     xtype: 'button',
@@ -97,6 +105,9 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                 {
                     xtype: 'gridpanel',
                     title: '',
+                    store: {
+                        type: 'AdmCode1001St'  
+                    },
                     columns: [
                         {
                             xtype: 'rownumberer'
@@ -143,10 +154,20 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     xtype: 'propertygrid',
                     title: '',
                     source: {
-                        'Property 1': 'String',
-                        'Property 2': true,
-                        'Property 3': '2019-05-16T14:19:25',
-                        'Property 4': 123
+                        '업무구분': '',
+                        '코드구분': '',
+                        '코드값': '',
+                        '코드명': '',
+                        '약어명': '',
+                        '관리항목1': '',
+                        '관리항목2': '',
+                        '관리항목3': '',
+                        '관리항목4': '',
+                        '관리항목5': '',
+                        '관리항목6': '',
+                        '관리항목7': '',
+                        '사용구분': '',
+                        '비고': ''
                     }
                 }
             ]
