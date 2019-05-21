@@ -519,6 +519,7 @@ public class RdrController {
 			result.put("errcode",hash.get("errcode"));
 			result.put("errmsg",hash.get("errmsg")); 
 			result.put("data",hash.get("rsltcur")); 
+			result.put("bankcd",hash.get("bankcd")); 
 			result.put("status", "true");
 		} catch(Exception ex) {
 			 result.put("status", "false");

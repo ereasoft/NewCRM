@@ -14,6 +14,6 @@
         <mapper resource="mapper/adc.xml"/> 
         <mapper resource="mapper/adm.xml"/>
          <mapper resource="mapper/amt.xml"/>
-  <!--      <mapper resource="mapper/inf.xml"/>  -->
+         <mapper resource="mapper/inf.xml"/> 
     </mappers> 
 </configuration> 

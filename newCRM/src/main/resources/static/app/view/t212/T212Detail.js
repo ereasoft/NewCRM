@@ -25,14 +25,14 @@ Ext.define('hkCRM.view.t212.T212Detail', {
         type: 'column'
     }, 
     
-    bodyPadding: 10,
+    bodyPadding: 5,
     
     fieldDefaults: {
         labelAlign: 'right',
         labelWidth: 70,
         msgTarget: 'side' ,
         allowBlank:true,
-        margin:'0 5 5 5',
+        margin:'0 5 5 0',
         width:150
     },
     
@@ -46,13 +46,55 @@ Ext.define('hkCRM.view.t212.T212Detail', {
     			       change: 'chkMsg'
     		 }	
     	},
+    	
     	{ xtype:'hiddenfield', name: 'loginNm'  },
     	{ xtype:'hiddenfield', name: 'sessionkey', value: sessionStorage.getItem("sessionkey") },
-    	{  fieldLabel: '예금주명 ', name: 't212_no'  }, 
-    	{  fieldLabel: '예금주전화번호 ', name: 't212_no'  }, 
-    	{  allowBlank:false, fieldLabel: '이체은행 ', xtype:'combo', name: 't212_no'  }, 
-    	{  fieldLabel: '계좌번호  ', name: 't212_no'  }, 
-    	{  fieldLabel: '생년월일(6자리)/사업자번호', name: 't212_no'  }, 
+    	{  fieldLabel: '예금주명 ', name: 'PYMTNM',  width:300},  
+    	{  xtype: 'fieldcontainer',  fieldLabel: '예금주전화번호',   layout: 'hbox', labelWidth: 100, width: 360,
+            combineErrors: false,  defaultType: 'textfield',margin: '0 0 0 0', 
+            defaults: {
+                hideLabel: 'true'
+            }, 
+            items:[
+            	{ 
+            		allowBlank:true, xtype:'combobox', fieldLabel: '지역번호', name: 'PYMTTEL1' , reference: 'PYMTTEL1', width:50,
+            		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
+				    minChars: 0, queryMode: 'local', typeAhead: true, 
+            		store: {xtype:'Common'},
+                },
+            	{  xtype:'displayfield', value:'-' , width:5 },
+            	{  allowBlank:true, fieldLabel: '국번', name: 'PYMTTEL2', reference: 'PYMTTEL2', width:50  },
+            	{  xtype:'displayfield', value:'-' , width:5 },
+            	{  allowBlank:true, fieldLabel: '전화번호', name: 'PYMTTEL3', reference: 'PYMTTEL3', width:50  }, 
+            	{  
+            		xtype:'segmentedbutton', allowToggle: false,margin:1, 
+            		items: [{
+            			text: '전화',
+            			listeners: {
+                			click: {
+                             	fn: 'onTellCall',
+                             	args: ['RDRTEL']
+                             },
+                		}
+                    }/*, {
+                        text: '문자',
+                        listeners: {
+                			click: {
+                             	fn: 'onTellSMS',
+                             	args: ['RDRTEL']
+                             },
+                		}
+                    }*/] 
+            	} 
+            ]
+    	},   
+    	{  fieldLabel: '이체은행',  xtype: 'combobox',  name: 'BANKCD', width:200,
+    		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL',  readOnly: false,
+		    minChars: 0, queryMode: 'local', typeAhead: true, 
+    		store: {xtype:'Common'}
+        }, 
+    	{  fieldLabel: '계좌번호  ', name: 'ACCTNO' ,width:250 }, 
+    	{  fieldLabel: '생년월일(6자리)/사업자번호', width:250, name: 'PRN'  }, 
     	{ fieldLabel: '이메일', xtype:'combo', name: 't212_no'} ,
     	{ fieldLabel: '이체신청일', xtype:'datefield', name: 't212_no'} ,
     	{ fieldLabel: '이체시작월 ',  name: 't212_no'} ,

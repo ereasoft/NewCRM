@@ -576,10 +576,14 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
    	         }
    		});
     	  
-    	 /*Ext.getCmp('tmmain').lookupReference('t212').lookupReference('list').getView().getStore().load( { 
+    	 Ext.getCmp('tmmain').lookupReference('t212').lookupReference('list').getView().getStore().load( { 
         		params:
     					{   
-        					rdr_no: record.get('RDR_NO') 
+        	        		bocd: hkCRM.config.Config.getTmBoCd(),
+        					rdr_no: record.get('RDR_NO') ,
+        					listgb: '1' ,
+        					loginID:loginID,
+    						sessionkey: sessionkey
     	                 } ,
     	         scope: this,
     	         callback: function(records, operation, success) {
@@ -588,13 +592,15 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
     	            	 if(obj ==undefined ){ //IE11 예외처리
     	            		 obj = Ext.JSON.decode(operation._response.responseText)
     	            	 }
+    	            	 var frm = Ext.getCmp('tmmain').lookupReference('t212').lookupReference('detail').getForm();    
+    	   	            	frm.findField('BANKCD').getStore().loadData(obj.bankcd);
     	            	 if(obj.errmsg != null){Ext.Msg.alert('Failed', obj.errmsg);}   
     	             } else {
     	            	 var obj =operation.error;
     	            	 Ext.Msg.alert('Failed', obj.statusText);
     	             }
     	         }
-    		});*/
+    		});
     	 
     	 Ext.getCmp('tmmain').lookupReference('t117').lookupReference('list').getView().getStore().load( { 
      		params:

@@ -133,6 +133,9 @@ public class AdmController {
 			HashMap hash = new HashMap();   
 			hash = mapper.readValue(body, new TypeReference<HashMap>(){}); 
 			
+			
+			
+		
 			AdmSv.getAdm1010(hash);  
 			result.put("errcode",hash.get("errcode"));
 			result.put("errmsg",hash.get("errmsg"));

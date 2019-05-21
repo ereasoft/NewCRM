@@ -15,7 +15,7 @@ Ext.define('hkCRM.model.T212Model', {
     fields: [   
     	{name: 'RDR_NO', type: 'string'},  //독자번호
     	{name: 'MEDICD', type: 'string'},  //매체코드
-    	{name: 'MEDINM', type: 'int'},  //매체명
+    	{name: 'MEDINM', type: 'string'},  //매체명
     	{name: 'VALQTY', type: 'int'},  //유가부수
     	{name: 'NO_VALQTY', type: 'int'},  //준유가부수
     	{name: 'PRE_VALQTY', type: 'int'},  //무료부수

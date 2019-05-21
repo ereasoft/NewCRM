@@ -390,8 +390,10 @@
             #{errcode, mode=OUT, jdbcType=VARCHAR}, 
             #{errmsg, mode=OUT, jdbcType=VARCHAR}, 
             #{bocd, mode=IN, jdbcType=VARCHAR},
-      		#{rdr_no, mode=IN, jdbcType=VARCHAR},  
-      		#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap }
+      		#{rdr_no, mode=IN, jdbcType=VARCHAR},   
+      		#{listgb, mode=IN, jdbcType=VARCHAR},  
+      		#{rsltcur, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap },
+      		#{bankcd, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap2 }
     ) }
  </select> 
  

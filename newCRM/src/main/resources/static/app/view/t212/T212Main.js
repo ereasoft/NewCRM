@@ -28,6 +28,6 @@ Ext.define('hkCRM.view.t212.T212Main', {
     
     items: [ 
     	{ xtype: 't212-list', reference:'list', header:false, flex:1} ,
-    	{ xtype: 't212-detail', reference:'detail', header:false, height:170} 
+    	{ xtype: 't212-detail', reference:'detail', header:false, height:300} 
     ]
 });
