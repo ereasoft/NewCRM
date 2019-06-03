@@ -15,7 +15,8 @@ Ext.define('hkCRM.view.rdr.RdrDetail', {
 
     requires: [  
         'hkCRM.view.rdr.RdrDetailController', 
-        'hkCRM.view.common.sendSMSController'
+        'hkCRM.view.common.sendSMSController' ,
+        'Ext.button.Segmented'
     ],
 
     title: '독자정보',
@@ -50,6 +51,8 @@ Ext.define('hkCRM.view.rdr.RdrDetail', {
     	{ xtype:'hiddenfield', name: 'LOGINTYPE' ,reference: 'LOGINTYPE' },
     	{ xtype:'hiddenfield', name: 'loginID' },
     	{ xtype:'hiddenfield', name: 'loginNm'  },
+    	{ xtype:'hiddenfield', name: 'DLVZIP1'  },
+    	{ xtype:'hiddenfield', name: 'DLVZIP2'  }, 
     	{ xtype:'hiddenfield', name: 'sessionkey', value: sessionStorage.getItem("sessionkey") }, 
     	
     	{  fieldLabel: '독자번호', name: 'RDR_NO', width:150, readOnly:true  },

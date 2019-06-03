@@ -126,6 +126,16 @@ public class RdrController {
 			HashMap hash = new HashMap();   
 			hash =Util.changeToLowerMapKey( mapper.readValue(body, new TypeReference<HashMap>(){}));   
 			hash.put("incmgpers",hash.get("loginid")) ; //추후 로그인 ID로 변경
+			if(hash.get("dlvzonecode") != null) {
+				String[] zip = hash.get("dlvzonecode").toString().split("-");
+				if(zip.length > 1) {  //구우편번호인 경우
+					hash.put("zip1",zip[0]);
+					hash.put("zip2",zip[1]);
+				}else { // -이 없으면 신 우편번호 또는 빈값으로 체크
+					hash.put("zonecode",hash.get("dlvzonecode")) ; 
+				}
+			} 
+			
 			rdrSv.getRdr1004(hash);  
 			result.put("data",hash.get("currdrlist"));
 			result.put("errmsg",hash.get("errmsg")); 
@@ -263,8 +273,18 @@ public class RdrController {
 			result.put("errmsg",hash.get("errmsg"));
 			result.put("totalcnt",hash.get("totalcnt"));
 			result.put("medicdcur",hash.get("medicdcur"));
-			result.put("data",hash.get("cursubscntrlist")); 
-			result.put("status", "true");
+			result.put("data",hash.get("cursubscntrlist"));  
+			result.put("medicdlist",hash.get("medicdlist")); 
+			result.put("commcdcur1",hash.get("commcdcur1")); 
+			result.put("commcdcur2",hash.get("commcdcur2")); 
+			result.put("commcdcur3",hash.get("commcdcur3")); 
+			if(hash.get("errmsg") == null) {
+				result.put("status", "true");
+				result.put("success", true);
+			}else {
+				result.put("status", "false");
+				result.put("success", false);
+			} 
 		} catch(Exception ex) {
 			 result.put("status", "false");
 			 result.put("errmsg", ex.getMessage());
@@ -307,14 +327,23 @@ public class RdrController {
 			ObjectMapper mapper = new ObjectMapper(); 
 			HashMap hash = new HashMap();   
 			hash =Util.changeToLowerMapKey( mapper.readValue(body, new TypeReference<HashMap>(){}));  
-			
+
+			hash.put("incmgpers",hash.get("loginid")) ; //추후 로그인 ID로 변경
+			hash.put("extndt",hash.get("extndt2"));  //스트링날짜로 변경 - 날짜로 리퀘스트시 날짜가 23시간 이전 날짜로 변경되어 임시조치
+			hash.put("subsfrdt",hash.get("subsfrdt2"));  //스트링날짜로 변경 - 날짜로 리퀘스트시 날짜가 23시간 이전 날짜로 변경되어 임시조치
+		
 			rdrSv.getRdr1013(hash);  
 			result.put("errcode",hash.get("errcode"));
 			result.put("errmsg",hash.get("errmsg"));  
 			result.put("ov_cntrno",hash.get("ov_cntrno"));
 			result.put("ov_mangno",hash.get("ov_mangno"));  
-			result.put("status", "true"); 
-			result.put("success", true);
+			if(hash.get("errmsg") == null) {
+				result.put("status", "true");
+				result.put("success", true);
+			}else {
+				result.put("status", "false");
+				result.put("success", false);
+			} 
 		} catch(Exception ex) {
 			 result.put("status", "false");
 		   	 result.put("success", false);
@@ -529,6 +558,40 @@ public class RdrController {
 		return result;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" }) //자동이체신청
+	@RequestMapping(value="/api/rdr/getRdr1073",  method = RequestMethod.POST, headers="Accept=application/json")  
+	public  HashMap  getRdr1073(  @RequestBody String body,ModelMap model ) { 
+		HashMap result = new HashMap();
+		try { 
+			ObjectMapper mapper = new ObjectMapper(); 
+			HashMap hash = new HashMap();   
+			hash =Util.changeToLowerMapKey( mapper.readValue(body, new TypeReference<HashMap>(){}));  
+			hash.put("incmgpers",hash.get("loginID"));
+			hash.put("aplcpathcd","30"); 
+			
+			rdrSv.getRdr1073(hash);  
+			
+			result.put("errcode",hash.get("errcode"));
+			result.put("errmsg",hash.get("errmsg"));  
+			
+
+			if(hash.get("errmsg") == null) {
+				result.put("status", "true");
+				result.put("success", true);
+			}else {
+				result.put("status", "false");
+				result.put("success", false);
+			}
+			 
+		} catch(Exception ex) {
+			 result.put("status", "false");
+			result.put("success", false);
+			 result.put("errmsg", ex.getMessage());
+			 log.debug(ex.getMessage());
+		}
+		return result;
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" }) //휴독
 	@RequestMapping(value="/api/rdr/getRdr1081",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  getRdr1081(  @RequestBody String body,ModelMap model ) { 
@@ -583,8 +646,14 @@ public class RdrController {
 			rdrSv.getRdr1083(hash);  
 			result.put("errcode",hash.get("errcode"));
 			result.put("errmsg",hash.get("errmsg"));  
-			result.put("status", "true"); 
-			result.put("success", true);
+			if(hash.get("errcode") != null) {
+				result.put("status", "false"); 
+				result.put("success", false);
+			}else {
+				result.put("status", "true"); 
+				result.put("success", true);
+			}
+			
 		} catch(Exception ex) {
 			 result.put("status", "false");
 		   	 result.put("success", false);
@@ -622,44 +691,5 @@ public class RdrController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" }) //휴독
-	@RequestMapping(value="/api/rdr/getRdr1073",  method = RequestMethod.POST, headers="Accept=application/json")  
-	public  HashMap  getRdr1073(  @RequestBody String body,ModelMap model ) { 
-		HashMap result = new HashMap();
-		try { 
-			ObjectMapper mapper = new ObjectMapper(); 
-			HashMap hash = new HashMap();   
-			hash = mapper.readValue(body, new TypeReference<HashMap>(){}); 
-			
-			rdrSv.getRdr1073(hash);  
-			result.put("errcode",hash.get("errcode"));
-			result.put("errmsg",hash.get("errmsg"));
-			result.put("accflag",hash.get("accflag"));
-			result.put("bocd",hash.get("bocd"));
-			result.put("incmgpers",hash.get("incmgpers"));
-			result.put("pymtnm",hash.get("pymtnm"));
-			result.put("pymttel1",hash.get("pymttel1"));
-			result.put("pymttel2",hash.get("pymttel2"));
-			result.put("pymttel3",hash.get("pymttel3"));
-			result.put("bankcd",hash.get("bankcd"));
-			result.put("acctno",hash.get("acctno"));
-			result.put("prn",hash.get("prn"));
-			result.put("aplcdt",hash.get("aplcdt"));
-			result.put("aplyyymm",hash.get("aplyyymm"));
-			result.put("email",hash.get("email"));
-			result.put("rdr_no",hash.get("rdr_no"));
-			result.put("medicd",hash.get("medicd"));
-			result.put("tmpflag",hash.get("tmpflag"));
-			result.put("aplcpathcd",hash.get("aplcpathcd"));
-			result.put("arskey",hash.get("arskey"));
-			
-			result.put("status", "true");
-		} catch(Exception ex) {
-			 result.put("status", "false");
-			 result.put("errmsg", ex.getMessage());
-			 log.debug(ex.getMessage());
-		}
-		return result;
-	}
-
+	
 }

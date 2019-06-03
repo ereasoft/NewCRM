@@ -15,7 +15,8 @@ Ext.define('hkCRM.view.t501.T501Detail', {
 
     requires: [  
         'hkCRM.view.t501.T501DetailController',
-        'hkCRM.view.common.sendSMSController'
+        'hkCRM.view.common.sendSMSController' ,
+        'Ext.button.Segmented'
     ],
 
     title: '이사정보',
@@ -48,8 +49,7 @@ Ext.define('hkCRM.view.t501.T501Detail', {
     	{  xtype:'hiddenfield', name: 'RDR_NO' },   
     	{  xtype:'hiddenfield', name: 'RDRNM' },
     	{  xtype:'hiddenfield', name: 'MOVEDT2'}, 
-    	{  xtype:'hiddenfield', name: 'DLVHOPEDT2'},  
-    	{ xtype:'hiddenfield', name: 'ACPTBOCD'  },
+    	{  xtype:'hiddenfield', name: 'DLVHOPEDT2'},   
     	{ 
     		xtype:'hiddenfield', name: 'MOVMZIPBLDGNUM',
     		listeners: {

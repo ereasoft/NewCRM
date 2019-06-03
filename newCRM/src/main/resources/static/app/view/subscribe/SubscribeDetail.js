@@ -84,7 +84,8 @@ Ext.define('hkCRM.view.subscribe.SubscribeDetail', {
                 } 
             ]
     	},   
-    	{  fieldLabel: '분기', name: 'CLAMTCYCLCD'}
+    	{  fieldLabel: '분기', name: 'CLAMTCYCLCD'},
+    	{ fieldLabel: '1년약정', name: 'ONEYEARYN', xtype:'checkbox'},
     	 
     ],
     

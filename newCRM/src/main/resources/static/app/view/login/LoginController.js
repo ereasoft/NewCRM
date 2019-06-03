@@ -17,7 +17,11 @@
     onLogon: function ()
     {
         var pl = this.lookupReference( 'Login' );
-        var tmview = pl.down( '#tmview' ).getValue() ;
+        var tmview = 'N' ;
+        if ( pl.down( '#tmview' ).getValue() )
+        {
+        	tmview = 'Y'
+        }  
         if ( pl.down( '#user' ).getValue() && pl.down( '#pass' ).getValue() )
         {
             if ( pl.down( '#remember' ).getValue() )
@@ -47,11 +51,9 @@
                         sessionStorage.setItem("loginID", obj.ov_id);
                         sessionStorage.setItem("loginNm", obj.incmgpers);
                         sessionStorage.setItem("sessionkey", obj.sessionkey); 
+                        sessionStorage.setItem("tmFull", tmview); 
                         
-                        var link = '/index.html'
-                        if(tmview){
-                        	 link = '/indexTm.html'
-                        } 
+                        var link = '/index.html' 
                         location.href = link;
                     } else
                     {

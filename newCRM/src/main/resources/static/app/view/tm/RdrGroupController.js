@@ -31,7 +31,8 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
 	                rdr_no: hkCRM.config.Config.getTmRdrNo(),
                     medicd: newTab.cls,
                     loginID:loginID,
-					sessionkey: sessionkey
+					sessionkey: sessionkey,
+					suspyn: 'Y'
                 },
                 success: function ( response, opts )
                 { 
@@ -77,7 +78,8 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                        		RPTVVALMM: rdrmd.RPTVVALMM,
                        		RPTVSUSPDT: rdrmd.RPTVSUSPDT,
                        		RPTVSUSPRESNCD: rdrmd.RPTVSUSPRESNCD, 
-                       		CLAMTCYCLCD: rdrmd.CLAMTCYCLCD
+                       		CLAMTCYCLCD: rdrmd.CLAMTCYCLCD,
+                       		ONEYEARYN: (rdrmd.ONEYEARYN == 'Y') ? true : false
                        	 });   
                     } 
                     else
@@ -103,6 +105,12 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
     	 var nowdate = Ext.Date.format(new Date(),'Ymd'); 
          var sessionkey = sessionStorage.getItem("sessionkey");
          var loginID = sessionStorage.getItem("loginID");
+         var valQtys = 0; //매체별 유가부수의 합
+         var t212detail = Ext.getCmp('tmmain').lookupReference('t212').lookupReference('detail');//이체신청상세
+         var t212frm = t212detail.getForm(); //이체신청상세폼
+        
+         arsYn = 'N';
+         arsKey = '';
          
     	 hkCRM.config.Config.setTmRdrNo(record.get('RDR_NO') );
     	 hkCRM.config.Config.setTmRdrNm(record.get('RDRNM') );
@@ -250,6 +258,14 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                 	 	SMSTRSMOBJYN: (reader.SMSTRSMOBJYN == 'Y') ? true : false,
                 	 	BOTELNO:BOTELNO
                 	 });
+                     
+                    
+                     t212frm.findField('PYMTNM').setValue(reader.RDRNM); 
+                     t212frm.findField('PYMTTEL1').setValue(reader.RDRPTPH_NO1);
+                     t212frm.findField('PYMTTEL2').setValue(reader.RDRPTPH_NO2);
+                     t212frm.findField('PYMTTEL3').setValue(reader.RDRPTPH_NO3);
+                     t212frm.findField('APLCDT').setValue(nowdate);
+                     t212frm.findField('EMAIL').setValue(reader.EMAIL);
 
                  } else
                  {
@@ -333,7 +349,8 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                  rdr_no: record.get('RDR_NO'),
                  medicd: record.get('RPTVMEDICD') ,
 				loginID:loginID,
-				sessionkey: sessionkey
+				sessionkey: sessionkey,
+				suspyn: 'Y'
              },
              success: function ( response, opts )
              {
@@ -343,6 +360,7 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                 	 //매체상세정보
                 	 var rptvmedicd = record.get('RPTVMEDICD') ; //대표매체
                 	 var mds = obj.medikindcur;
+                	 
                 	 var tabpl = Ext.getCmp('tmmain').lookupReference('rdrgroup').lookupReference('medias');
             		 var activetab = 999999 ;
             		 var rptvYn = 'N';
@@ -365,6 +383,7 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                 			 	activetab = i;
                 			 	rptvYn = 'Y';
                 			 }
+                		 valQtys += parseInt(mds[i].VALQTY) //구독자의 유료부수 합계
                 		 tabpl.add({xtype:'subscribe-detail',title:mds[i].MEDINM,cls:mds[i].MEDICD});
                 	 }
                 	 if(activetab != 999999){
@@ -397,10 +416,16 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
                     		RPTVVALMM: rdrmd.RPTVVALMM,
                     		RPTVSUSPDT: rdrmd.RPTVSUSPDT,
                     		RPTVSUSPRESNCD: rdrmd.RPTVSUSPRESNCD, 
-                    		CLAMTCYCLCD: rdrmd.CLAMTCYCLCD
+                    		CLAMTCYCLCD: rdrmd.CLAMTCYCLCD,
+                       		ONEYEARYN: (rdrmd.ONEYEARYN == 'Y') ? true : false
                     	 }); 
                 	 } 
-                	 
+                	 //유료부수가 없는 경우 이체신청 불가, 신청버튼 disabled
+                	 if(valQtys > 0){
+                    	 t212detail.lookupReference('addBtn').setDisabled(false); 
+                	 }else{ 
+                    	 t212detail.lookupReference('addBtn').setDisabled(true);
+                	 }
                  } 
                  else
                  {
@@ -484,6 +509,12 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
  	            	 if(obj ==undefined ){ //IE11 예외처리
  	            		 obj = Ext.JSON.decode(operation._response.responseText)
  	            	 }
+ 	            	 var t111frm = Ext.getCmp('tmmain').lookupReference('t111').lookupReference('detail').getForm();
+ 	            	t111frm.findField('MEDICD').getStore().loadData(obj.medicdlist);
+ 	            	t111frm.findField('CLAMTMTHDCD').getStore().loadData(obj.commcdcur1);
+ 	            	t111frm.findField('FREECLSF').getStore().loadData(obj.commcdcur3);
+ 	            	t111frm.findField('EXTNTYPECD').getStore().loadData(obj.commcdcur2);
+ 	            	t111frm.findField('EXTNTYPECD').setValue('30');
  	            	 if(obj.errmsg != null){Ext.Msg.alert('Failed', obj.errmsg);}   
  	             } else {
  	            	 var obj = operation.error.response.responseJson
@@ -621,7 +652,7 @@ Ext.define('hkCRM.view.tm.RdrGroupController', {
  	            		 Ext.Msg.alert('Failed', obj.errmsg);
  	            	 } else{
  	            		 var frm =Ext.getCmp('tmmain').lookupReference('t117').lookupReference('detail').getForm();
-  	            		frm.findField('MEDICD').getStore().loadData(obj.commcdcur1);
+  	            		 frm.findField('MEDICD').getStore().loadData(obj.commcdcur1);
                          frm.findField('TEMP_STOPCLSFCD').getStore().loadData(obj.commcdcur2);
  	            	 }  
  	             } else {

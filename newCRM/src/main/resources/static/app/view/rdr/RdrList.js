@@ -99,6 +99,13 @@ Ext.define('hkCRM.view.rdr.RdrList', {
     				click: 'searchRdr'
     			} 
     		},
+    		{
+			xtype:'button', text: '초기화' , margin:'0 0 0 5' ,
+			iconCls: 'fa fa-eraser',
+			listeners: { 
+				click: 'resetItems'
+			} 
+		},
     	]
     },
     

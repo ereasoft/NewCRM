@@ -57,7 +57,55 @@ Ext.define('hkCRM.view.t212.T212ListController', {
             filters.remove(this.nameFilter);
             this.nameFilter = null;
         }
-    }
+    },
+    
+    onCancle: function(view, recIndex, cellIndex, item, e, record) {    
+		var msg = '해지 하시겠습니까?'; 
+        sessionkey = sessionStorage.getItem("sessionkey");
+        loginID = sessionStorage.getItem("loginID");
+    	Ext.Msg.confirm('해지처리',msg, function(btn){
+    		if(btn == 'yes'){  
+    			Ext.Ajax.request( {  //
+    	             url: '/api/rdr/getRdr1073',
+    	             method: 'POST',
+    	             headers: {
+    	                 'Content-Type': 'application/json', 
+    	             },  
+    	             jsonData: {
+    	                 bocd: hkCRM.config.Config.getTmBoCd() ,
+    	                 rdr_no: record.get('RDR_NO') ,
+    	                 medicd: record.get('MEDICD') ,
+    	                 accflag: 'E' ,
+						loginID:loginID,
+						sessionkey: sessionkey
+    	             },
+    	             success: function ( response, opts )
+    	             {
+    	                 var obj = Ext.decode( response.responseText );
+    	                 if ( obj.status == 'true' )
+    	                 {    
+    	                	 record.drop();
+    	                	 var detail = Ext.getCmp('tmmain').lookupReference('t212').lookupReference('list');
+    	                	 detail.getView().getStore().reload();
+    	                	 Ext.Msg.alert( '해지처리', '처리완료' );
+    	                 } else
+    	                 {
+    	                     Ext.Msg.alert( '해지처리', obj.errmsg );
+    	                 }
+    	             },
+
+    	             failure: function ( response, opts )
+    	             {
+    	            	 var obj = operation.error.response.responseJson;
+    	            	 if(obj ==undefined ){ //IE11 예외처리
+    	            		 obj = Ext.JSON.decode(operation.error.response.responseText)
+    	            	 }
+    	            	 Ext.Msg.alert('Failed', obj.message);
+    	             }
+    	         } );
+    		}
+     });
+}
     
   
     

@@ -119,8 +119,7 @@ Ext.define('hkCRM.view.rdr.RdrDetailController', {
             jsonSubmit: true
             form.submit( {
                 waitMsg: 'Processing...',
-                method: 'POST',
-                headers: { 'SessionKey': sessionkey },
+                method: 'POST', 
                 params: form.getValues(),
                 submitEmptyText: false,
 

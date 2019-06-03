@@ -163,6 +163,48 @@ Ext.define('hkCRM.view.rdr.RdrListController', {
             this.nameFilter = null;
         }
     },
+    
+    resetItems: function(){  //화면 초기화
+    	var main = Ext.getCmp('tmmain');//lookupReference('t110List').getView().getStore().
+    	var rdrgrp = main.lookupReference('rdrgroup');
+    	//독자조회
+    	rdrgrp.lookupReference('rdrlist').lookupReference('SEARCH_NM').setValue('');
+    	rdrgrp.lookupReference('rdrlist').getView().getStore().removeAll(); 
+    	
+    	//독자정보
+    	rdrgrp.lookupReference('detail').getForm().reset();
+    	//기타정보
+    	rdrgrp.lookupReference('etc').getForm().reset();
+    	//매체정보
+    	rdrgrp.lookupReference('medias').removeAll();
+    	//구독처
+    	rdrgrp.lookupReference('infra').getForm().reset();
+    	//민원내역
+    	main.lookupReference('t110List').getView().getStore().removeAll();
+    	main.lookupReference('t110Detail').getForm().reset();
+    	//수금내역 
+    	main.lookupReference('t114').lookupReference('list').lookupReference('tbar').down('[name=brfcur]').setValue('');
+    	main.lookupReference('t114').lookupReference('list').lookupReference('tbar').down('[name=brfcur2]').setValue('');
+    	main.lookupReference('t114').lookupReference('list').lookupReference('tbar').down('[name=clamt]').setValue(''); 
+    	main.lookupReference('t114').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t114').lookupReference('detail').getForm().reset();
+    	//구독추가
+    	main.lookupReference('t111').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t111').lookupReference('detail').getForm().reset();
+    	//중지
+    	main.lookupReference('t112').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t112').lookupReference('detail').getForm().reset();
+    	main.lookupReference('t112').lookupReference('detail').lookupReference('t112MdList').getView().getStore().removeAll();
+    	//이사
+    	main.lookupReference('t501').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t501').lookupReference('detail').getForm().reset();
+    	//이체신청
+    	main.lookupReference('t212').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t212').lookupReference('detail').getForm().reset();
+    	//휴독
+    	main.lookupReference('t117').lookupReference('list').getView().getStore().removeAll();
+    	main.lookupReference('t117').lookupReference('detail').getForm().reset();
+    },
 
     mergeDlvd: function(value,operation,record){
     	var result = '';

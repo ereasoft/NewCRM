@@ -18,6 +18,8 @@ import com.hk.crm.service.CommonService;
 
 import Seed.Base64Encoder;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -211,7 +213,23 @@ public class CommonController {
 			String path1 = hash.get("inforkey").toString().substring(0, 6);
 			String path2 = hash.get("inforkey").toString().substring(6, 8);
 			InputStream in = sftp.download("/"+ path1 +"/" + path2, hash.get("wav").toString()) ;
+
 			hash.put("fileobject",in);
+			
+			//파일 저장시작
+			String downUrl = "/home/crmweb/appcrm/crm/ROOT/ars/";
+			//downUrl = "D:\\hankyung\\ars\\";
+			File file = new File(downUrl + hash.get("wav").toString());
+			FileOutputStream out = new FileOutputStream(file);
+			
+			byte[] data = new byte[1024];
+			int length = 0;
+
+			while( (length = in.read(data)) != -1 ) {
+				out.write(data, 0, length);
+			}
+			out.close();
+			//파일 저장완료 
 		
 			comrSv.insertArsRec(hash);   
 			result.put("errmsg",hash.get("errmsg"));   

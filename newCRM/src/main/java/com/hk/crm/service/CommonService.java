@@ -28,7 +28,7 @@ public class CommonService {
 		return  commonMapper.getLogin(params);
 	}	
 	public List<HashMap> getLogincheck(HashMap params) {
-		return  commonMapper.getLogin(params);
+		return  commonMapper.getLogincheck(params);
 	}	
 	public List<HashMap> insertArsRec(HashMap params) {
 		return  commonMapper.insertArsRec(params);

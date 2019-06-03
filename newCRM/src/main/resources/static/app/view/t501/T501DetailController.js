@@ -155,6 +155,8 @@ Ext.define('hkCRM.view.t501.T501DetailController', {
   	    	        form.findField('DLVHOPEDT2').setValue(form.findField('DLVHOPEDT').getRawValue());
   	    	      form.findField('loginID').setValue(loginID);
   	        	form.findField('loginNm').setValue(loginNm);
+  	        	
+  	        	
   	    	        var params = form.getValues();
   	    	        
   	    			    	if ( form.isValid() )

@@ -22,5 +22,6 @@ Ext.define('hkCRM.model.T212Model', {
     	{name: 'REALSUBSAMT', type: 'int'},  //실구독금액 
     	{name: 'CLAMTMTHDCD', type: 'string'},  //수금방법코드
     	{name: 'CLAMTMTHDNM', type: 'string'},  //수금방법 
+    	{name: 'APLCPROCSTAT', type: 'string'},  //처리상태 
     ]  
 });

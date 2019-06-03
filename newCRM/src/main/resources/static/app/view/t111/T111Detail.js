@@ -39,10 +39,18 @@ Ext.define('hkCRM.view.t111.T111Detail', {
     
     items: [ 
     	{ xtype:'hiddenfield', name: 'RDR_NO'  },
+    	{ xtype:'hiddenfield', name: 'ACCFLAG' , value:'I' }, 
+    	{  xtype:'hiddenfield', name: 'BOCD'},
+    	{  xtype:'hiddenfield', name: 'BOSEQ'}, 
+    	{  xtype:'hiddenfield', name: 'CNTRNO'},
+    	{  xtype:'hiddenfield', name: 'MANGNO'},
     	{ xtype:'hiddenfield', name: 'sessionkey', value: sessionStorage.getItem("sessionkey") },
-    	{ xtype:'hiddenfield', name: 'loginID', value: sessionStorage.getItem("loginID") },
+    	{ xtype:'hiddenfield', name: 'loginID'},
+    	{ xtype:'hiddenfield', name: 'loginNm' },
+    	{ xtype:'hiddenfield', name: 'EXTNDT2' },
+    	{ xtype:'hiddenfield', name: 'SUBSFRDT2' },
     	{  allowBlank:false, fieldLabel: '매체명', xtype:'combo', name: 'MEDICD' ,reference: 'MEDICD',
-    	   publishes: 'selection.data.MANGITEM1',  displayField: 'CDNM', valueField: 'CDVAL', width:200,
+    	    displayField: 'CDNM', valueField: 'CDVAL', width:200,
 		   minChars: 0, queryMode: 'local', typeAhead: true, 
     	   store: {xtype:'Common'},
     	   listeners: {
@@ -77,20 +85,22 @@ Ext.define('hkCRM.view.t111.T111Detail', {
     		   minChars: 0, queryMode: 'local', typeAhead: true, 
         	   store: {xtype:'Common'},
     	} , 
-    	{ fieldLabel: '확장일자',  name: 'EXTNDT', xtype:'datefield', format:'Ymd'} ,
-    	{ fieldLabel: '확장우형', xtype:'combo', name: 'EXTNTYPECD',
+    	{ fieldLabel: '확장일자',  name: 'EXTNDT', xtype:'datefield', format:'Ymd', value:new Date()} ,
+    	{ fieldLabel: '확장유형', xtype:'combo', name: 'EXTNTYPECD',
     		 publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', width:200,
-  		   minChars: 0, queryMode: 'local', typeAhead: true, 
+  		   minChars: 0, queryMode: 'local', typeAhead: true, readOnly: true,
       	   store: {xtype:'Common'},
     	} ,
     	{ fieldLabel: '확장자',  name: 'EXTNPERSNM'} ,
     	{ fieldLabel: '분기월',  name: 'CLAMTCYCLCD'} , 
     	{ fieldLabel: '구독일자',  name: 'SUBSFRDT', xtype:'datefield', format:'Ymd'} , 
     	{ fieldLabel: '우송료',  xtype:'numberfield' , allowDecimals: false, name: 'PDLVFEE'} ,
-    	{  xtype:'button', text: '등록' , margin:'0 5 0 0' },
+    	{  xtype:'button', text: '등록' , margin:'0 5 0 0', reference: 'regBtn',
+    		handler: 'onSubmit'
+    	},
     	{  
     		xtype:'button', text: '초기화' ,
-    		handler: 'frmReset'
+    		handler: 'onReset'
     	}
     ],
     

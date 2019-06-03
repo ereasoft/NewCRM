@@ -31,6 +31,7 @@ Ext.define('hkCRM.view.t117.T117DetailController', {
     				 form.findField('ACCFLAG').setValue('D');
     				 msg = '삭제를 하시겠습니까?';
     			}else if(btn.getText() == '수정'){
+    				form.findField('ACCFLAG').setValue('U');
     				msg = '수정을 하시겠습니까?';
     			}
     	    	Ext.Msg.confirm('휴독처리',msg, function(btn){
@@ -92,6 +93,11 @@ Ext.define('hkCRM.view.t117.T117DetailController', {
 		this.getView().lookupReference('delBtn').setHidden(true) ;
 		frm.reset();
 		frm.findField('ACCFLAG').setValue('I');   
-	} 
+	} ,
+	
+	onMediaChg: function( me, record, eOpts ){
+		var frm = this.getView().getForm(); 
+		frm.findField('QTY').setValue(record.get('MANGITEM1'));
+	}
     
 });

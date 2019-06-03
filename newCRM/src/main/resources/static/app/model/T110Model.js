@@ -27,6 +27,8 @@ Ext.define('hkCRM.model.T110Model', {
     	{name: 'BOPROCYN', type: 'string'},  //지국처리여부
     	{name: 'PROCCONT', type: 'string'},  //처리내용 
     	{name: 'CNS_EMPCNFMDT', type:'date', dateFormat:'c'},  //상담원확인일자
-    	{name: 'CNS_EMPCNFMYN', type: 'string'}  //상담원확인여부
+    	{name: 'CNS_EMPCNFMYN', type: 'string'},  //상담원확인여부
+    	{name: 'CNS_EMPCNFMFLNM', type: 'string'} , //상담원확인성명
+    	{name: 'CNS_EMPACPNFLNM', type: 'string'}  //상담원접수성명
     ]  
 });

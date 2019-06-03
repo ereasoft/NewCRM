@@ -28,11 +28,13 @@
     var sendPhone = '07087076102'; 
     var callPhone = '';
     var oldCallPhone = '';  
+    var arsKey = '';
+    var arsYn = 'N'
     var arsOK = false;
     var arsFlag = false;
     var arsMsg = "";
     var wsCon = false;
-    
+    var count = 0;
     var arsTask;
     //끝
     
@@ -197,13 +199,21 @@
        
        if(getParameterByName("loginID") != null) {
     	   loginID = getParameterByName("loginID");
+    	   sessionStorage.setItem("loginID", loginID) ;
        }
        if(getParameterByName("loginNm") != null){
-    	   loginNm = getParameterByName("loginNm");
+    	   loginNm = decodeURI(getParameterByName("loginNm"));
+    	   sessionStorage.setItem("loginNm", loginNm) ;
        } 
        if(getParameterByName("tmFull") != null) 
        {
     	   tmFull = getParameterByName("tmFull");  
+       } 
+       
+       if(getParameterByName("sessionkey") != null) 
+       {
+    	   sessionkey = getParameterByName("sessionkey");
+    	   sessionStorage.setItem("sessionkey",getParameterByName("sessionkey")) ;
        } 
         
        

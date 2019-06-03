@@ -49,11 +49,15 @@ Ext.define('hkCRM.view.t110.T110List', {
         },
         { text: '분류', dataIndex: 'DSCTTYPENM', width:80
         },
-    	{ text: '제목', dataIndex: 'TITL', flex:1
+    	{ text: '제목', dataIndex: 'TITL', width:200
         },
-    	{ text: '처리', dataIndex: 'BOPROCYN', width:40  
+    	{ text: '처리', dataIndex: 'BOPROCYN', width:35  
         },
-        { text: '확인', dataIndex: 'CNS_EMPCNFMYN', width:40  
+        { text: '확인', dataIndex: 'CNS_EMPCNFMYN', width:35
+        },
+        { text: '접수자', dataIndex: 'CNS_EMPACPNFLNM', width:50  
+        },
+        { text: '확인자', dataIndex: 'CNS_EMPCNFMFLNM', width:50  
         },
         { text: '처리일자', dataIndex: 'BOPROCDT', width:80
    		 ,renderer: Ext.util.Format.dateRenderer('Y-m-d')

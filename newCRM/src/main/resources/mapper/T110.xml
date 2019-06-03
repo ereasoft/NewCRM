@@ -30,7 +30,7 @@
   <select id="getCoAT110" parameterType="hashmap" statementType="CALLABLE">
    { CALL NEWP_SL_CO_A_T110(
             #{errcode, mode=OUT, jdbcType=VARCHAR},  
-      		#{bocd, mode=IN, jdbcType=VARCHAR},
+      		#{errmsg, mode=IN, jdbcType=VARCHAR},
       		#{incmgpers, mode=IN, jdbcType=VARCHAR}, 
       		#{accflag, mode=IN, jdbcType=VARCHAR},  
       		#{userflag, mode=IN, jdbcType=VARCHAR},  

@@ -33,7 +33,7 @@ Ext.define('hkCRM.Application', {
         
         var loginInfor; 
         loginInfor = sessionStorage.getItem( 'loginCheck' );           
-        
+        tmFull = sessionStorage.getItem( 'tmFull' );           
         if (loginInfor != null && loginInfor != ''){ //로그인 되어, 사용자정보를 정상적으로 세션스토리지에 저장한 경우
             var obj = JSON.parse( loginInfor );
             loginID = obj.ov_id;
@@ -42,8 +42,13 @@ Ext.define('hkCRM.Application', {
             hkCRM.config.Config.setEmpNo( obj.emp_no );
             hkCRM.config.Config.setHdptCd( obj.hdptcd );
             hkCRM.config.Config.setDeptNm( obj.deptnm );
-            hkCRM.config.Config.setEmail( obj.email );  
+            hkCRM.config.Config.setEmail( obj.email );   
         } 
+        
+        if(getParameterByName("sessionkey") != null)  {
+        	tmFull = 'Y';
+        	loginInfor = 'ssl';
+        }
        
         if (loginInfor == null || loginInfor == '')
         {

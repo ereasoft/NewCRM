@@ -18,10 +18,12 @@ Ext.define('hkCRM.view.t111.T111MainController', {
     },  
     
 	onItemSelected: function(selModel, record, index, eOpts){ 
-        var frm =  this.lookupReference('detail').getForm();  
+		var detail = this.lookupReference('detail');
+        var frm =  detail.getForm();  
         var rdr_no = record.get('RDR_NO');
         var sessionkey = sessionStorage.getItem("sessionkey");
         var loginID = sessionStorage.getItem("loginID");
+        detail.lookupReference('regBtn').setText('수정');
         
 		Ext.Ajax.request( {  //구독정보 상세
             url: '/api/rdr/getRdr1012',
@@ -43,15 +45,13 @@ Ext.define('hkCRM.view.t111.T111MainController', {
                 if ( obj.status == 'true' )
                 {  
                	 //구독정보
-               	    var reader = obj.cursubscntrlist[0];  
-                	  
-                    frm.findField('CLAMTMTHDCD').getStore().loadData(obj.commcdcur1);
-                    frm.findField('FREECLSF').getStore().loadData(obj.commcdcur2);
-                    frm.findField('EXTNTYPECD').getStore().loadData(obj.commcdcur3);
-                    frm.findField('MEDICD').getStore().loadData(obj.medicdcur); 
+               	    var reader = obj.cursubscntrlist[0];   
+                    
                     var nowdate = Ext.Date.format(new Date(),'Ymd');
                     
                     frm.setValues({  
+                    	CNTRNO: record.get('CNTRNO') ,
+                    	MANGNO: record.get('MANGNO') ,
                     	RDR_NO: reader.RDR_NO,
                     	MEDICD: reader.MEDICD,
                     	SUBSQTY: reader.SUBSQTY,
@@ -61,7 +61,7 @@ Ext.define('hkCRM.view.t111.T111MainController', {
                     	FREECLSF: reader.FREECLSF,
                     	DSCNAMT: reader.DSCNAMT,
                     	CLAMTMTHDCD: reader.CLAMTMTHDCD,
-                    	EXTNDT:  (record.get('SUSEXTNDTPFRDT') == null)? nowdate : record.get('EXTNDT'), 
+                    	EXTNDT: reader.EXTNDT, 
                     	EXTNTYPECD:  reader.EXTNTYPECD, 
                     	EXTNPERSNM:  reader.EXTNPERSNM, 
                     	CLAMTCYCLCD:  reader.CLAMTCYCLCD, 

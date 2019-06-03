@@ -51,14 +51,17 @@ Ext.define('hkCRM.view.t117.T117Detail', {
     	{  xtype:'hiddenfield', name: 'SUSPTODT2'}, 
     	{  xtype:'hiddenfield', name: 'SUSPFRDT2'}, 
     	{  xtype:'hiddenfield', name: 'DLVDT2'}, 
-    	{  fieldLabel: '매체명',  xtype: 'combobox',  name: 'MEDICD', width:180,
+    	{  fieldLabel: '매체명',  xtype: 'combobox',  referencd:'MEDICD', name: 'MEDICD', width:180,
     		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL',  readOnly: false,
 		    minChars: 0, queryMode: 'local', typeAhead: true, 
-    		store: {xtype:'Common'}
+    		store: {xtype:'Common'},
+    		listeners: {
+    	        select: 'onMediaChg'
+    	    }
         },  
     	{  allowBlank:false, fieldLabel: '지국확인 ', xtype:'checkbox', name: 'BOCNFMYN' ,inputValue:'Y', width:100  },
     	{  allowBlank:false, fieldLabel: '상담원확인 ', xtype:'checkbox', name: 'CNS_EMPCNFMYN' ,inputValue:'Y', width:100  },
-    	{  fieldLabel: '부수 ', name: 'QTY', xtype:'numberfield' , labelWidth:50, width:110, allowDecimals: false },  
+    	{  fieldLabel: '부수 ', name: 'QTY', xtype:'numberfield' , labelWidth:50, width:110, allowDecimals: false, readOnly:false},  
     	{  fieldLabel: '서비스선택',  xtype: 'combobox',  name: 'TEMP_STOPCLSFCD', width:180,
     		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL',  readOnly: false,
 		    minChars: 0, queryMode: 'local', typeAhead: true, 

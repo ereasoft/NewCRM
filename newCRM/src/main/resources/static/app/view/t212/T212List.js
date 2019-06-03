@@ -43,18 +43,31 @@ Ext.define('hkCRM.view.t212.T212List', {
     }, 
     
     columns: [ 
-    	{ text: '매체명', dataIndex: 'MEDINM', width:50 
+    	{ text: '매체명', dataIndex: 'MEDINM', width:80 
         }, 
-        { text: '유가부수', dataIndex: 'VALQTY',  width:70   
+        { text: '유가부수', dataIndex: 'VALQTY',  width:60 
         },
-        { text: '준유가부수', dataIndex: 'NO_VALQTY', width:70
+        { text: '준유가부수', dataIndex: 'NO_VALQTY', width:60
         },
-    	{ text: '무료부수', dataIndex: 'PRE_VALQTY', width:70
+    	{ text: '무료부수', dataIndex: 'PRE_VALQTY', width:60
         },
     	{ text: '실구독금액', dataIndex: 'REALSUBSAMT', width:70
         }, 
-    	{ text: '수금방법', dataIndex: 'CLAMTMTHDNM', width:70
-        }  
+    	{ text: '수금방법', dataIndex: 'CLAMTMTHDNM', width:90
+        } , 
+    	{ text: '신청상태', dataIndex: 'APLCPROCSTAT', width:70
+        } ,
+        {
+            xtype: 'actioncolumn', 
+            width: 30,
+            sortable: false,
+            menuDisabled: true,
+            items: [{ 
+                iconCls: 'cell-editing-delete-row',
+                tooltip: 'Delete Plant',
+                handler: 'onCancle'
+            }]
+        }
     ],
 
     listeners: {

@@ -23,7 +23,7 @@ public List<HashMap> getRdr1034(HashMap params);
 public List<HashMap> getRdr1041(HashMap params);
 public List<HashMap> getRdr1042(HashMap params);
 public List<HashMap> getRdr1043(HashMap params);
-public List<HashMap> getRdr1071(HashMap params);
+public List<HashMap> getRdr1071(HashMap params); 
 public List<HashMap> getRdr1081(HashMap params);
 public List<HashMap> getRdr1083(HashMap params);
 public List<HashMap> getRdr1006(HashMap params);
