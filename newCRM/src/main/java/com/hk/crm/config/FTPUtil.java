@@ -26,7 +26,7 @@ public class FTPUtil {
  
    // SFTP 서버연결
     public void init(){
-        String url = "10.120.1.110";
+        String url = "210.96.203.140";
         int port = 10022;
         String user = "netdial";
         String password = "!1neomecca#3@";
