@@ -6,6 +6,7 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
    
     init: function(){ 
     	
+<<<<<<< HEAD
     	var aaa ;
         this.lookupReference('jobcls2').getStore().load( { 
          		params:
@@ -32,6 +33,11 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
      		}); 
 
 /*    	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
+=======
+    	var frm = this;
+    	
+    	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
+>>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
             url: '/api/Adm/getAdm1000',
             method: 'POST',
             headers: {
@@ -47,12 +53,9 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
                 if ( obj.status == 'true' )
                 {    
                     var obj = Ext.decode( response.responseText ); 
-                   	// var frm = this.items.items[0].getForm();
-                
-                   	this.lookupReference('jobcls').getStore().loadData(obj.jobclsflist);    
+                   	frm.lookupReference('jobcls').getStore().loadData(obj.jobclsflist);    
+                   	frm.lookupReference('cdcls').getStore().loadData(obj.cdclsflist);    
                 }
-                	
-                     
                 else
                 {
                     Ext.Msg.alert( 'Failed', obj.errmsg, function () { return false; } );
@@ -63,12 +66,17 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
             {
                 Ext.Msg.alert( 'System Error', response.status, function () { return false; } );
             }
-        } );*/
-    	
-    	
+        } );
     }, 
     
    onLoad: function(){
+	   
+   },
+   
+   findCode: function( combo, record, eOpts ){
+	   var jobcode = record.data.JOB_CLSF;
+	   this.lookupReference('cdcls').getStore().clearFilter();
+	   this.lookupReference('cdcls').getStore().filter('JOB_CLSF', record.getData().JOB_CLSF)
 	   
    },
    
@@ -79,6 +87,7 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
    
    btnClick: function ( )
    {
+	   var ccc;
 	   Ext.Ajax.request
 	   ( {   //업무구분과 코드구분 콤보 조회
 	       url: '/api/Adm/getAdm1001',
@@ -88,7 +97,8 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
 	       },  
 	       jsonData: {
 	           loginID:loginID,
-				sessionkey: sessionkey
+			   sessionkey: sessionkey
+			   //jobcls: 
 	       },
 	       success: function ( response, opts )
 	       { 

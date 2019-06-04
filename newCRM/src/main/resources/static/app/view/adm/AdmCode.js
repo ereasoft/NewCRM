@@ -52,6 +52,7 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     labelAlign: 'right',
                     labelWidth: 60,
             		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
+<<<<<<< HEAD
         		    minChars: 0, queryMode: 'remote', typeAhead: true, 
             		store: {xtype:'AdmCodeSt'}
                 },
@@ -60,17 +61,43 @@ Ext.define('hkCRM.view.adm.AdmCode', {
             		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
 				    minChars: 0, queryMode: 'local', typeAhead: true, 
             		store: {xtype:'AdmCodeSt'}
+=======
+        		    minChars: 0, queryMode: 'local', typeAhead: true, 
+            		store: {xtype:'AdmCode'},
+            		listeners: {
+                        select: 'findCode'
+                    }
+>>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
                 },
                 {
                     xtype: 'combobox',
+                    name: 'cdcls', 
+                    reference: 'cdcls',
                     dock: 'left',
                     fieldLabel: '코드구분',
                     labelAlign: 'right',
-                    labelWidth: 60
+                    labelWidth: 60,
+            		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
+        		    minChars: 0, queryMode: 'local', typeAhead: true, 
+            		store: {
+            		    model: 'hkCRM.model.AdmCodeMd',
+
+            		    proxy: {
+
+            		        type: 'memory',
+            		        //url:'/api/Adm/getAdm1000',
+            		        reader: {
+            		            type: 'json',
+            		            rootProperty: 'jobcls'
+            		        }
+            		    },
+            		}                	
                 },
                 {
                     xtype: 'textfield',
                     dock: 'left',
+                    name: 'cdval', 
+                    reference: 'cdval',
                     fieldLabel: '코드값',
                     labelAlign: 'right',
                     labelWidth: 50
@@ -78,6 +105,8 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                 {
                     xtype: 'textfield',
                     dock: 'left',
+                    name: 'cdnm', 
+                    reference: 'cdnm',
                     fieldLabel: '코드명',
                     labelAlign: 'right',
                     labelWidth: 50
@@ -114,7 +143,11 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     xtype: 'gridpanel',
                     title: '',
                     store: {
+<<<<<<< HEAD
                       //  type: 'AdmCode1001St'  
+=======
+                       // type: 'AdmCode1001St'  
+>>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
                     },
                     columns: [
                         {
