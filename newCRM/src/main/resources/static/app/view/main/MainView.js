@@ -65,18 +65,336 @@ Ext.define('hkCRM.view.main.MainView', {
             },
             items: [
             	{ xtype: 'button', text: '민원종합화면', handler:'goUrl'},
-            	{ xtype: 'button', text: '지동이체'},
+//            	{ xtype: 'button', text: '지동이체'},
+
             	{ 
             		xtype: 'button', 
-            		text: '관리자',
-                    listeners: {
-                       click: {
-                          
-                           fn: 'menuClick',
-                           args: ['AdmCode', '공통코드']
-                       }
-                   }
-           	}
+            		text: '독자관리',
+            		menu: 
+        			[
+        				{
+	                		xtype: 'button', 
+	                		text: '일반독자',
+	                        listeners: {
+	                            click: {
+	                               
+	                                fn: 'menuClick',
+	                                args: ['slrdr1100', '일반독자']
+	                            }
+	                        }        				
+        				},
+                    	{ 
+                    		xtype: 'button', 
+                    		text: '대학생독자',
+                            listeners: {
+                               click: {
+                                  
+                                   fn: 'menuClick',
+                                   args: ['slrdr2400', '대학생독자']
+                               }
+                           }
+                    	},
+                    	{ 
+                    		xtype: 'button', 
+                    		text: '이사독자관리',
+                            listeners: {
+                               click: {
+                                  
+                                   fn: 'menuClick',
+                                   args: ['slrdr1300', '이사독자관리']
+                               }
+                           }
+                    	},
+                    	{ 
+                    		xtype: 'button', 
+                    		text: '휴독관리',
+                            listeners: {
+                               click: {
+                                  
+                                   fn: 'menuClick',
+                                   args: ['slrdr1500', '휴독관리']
+                               }
+                           }
+                    	},
+                    	{ 
+                    		xtype: 'button', 
+                    		text: '중지독자관리',
+                            listeners: {
+                               click: {
+                                  
+                                   fn: 'menuClick',
+                                   args: ['slrdr1600', '중지독자관리']
+                               }
+                           }
+                    	},
+                    	{ 
+                    		xtype: 'button', 
+                    		text: '민원관리',
+                            listeners: {
+                               click: {
+                                  
+                                   fn: 'menuClick',
+                                   args: ['slrdr1700', '민원관리']
+                               }
+                           }
+                    	}
+
+        			]
+            	},
+            	
+            	{ 
+            		xtype: 'button', 
+            		text: '수금관리',
+            		menu:
+            		{
+            			xtype: 'menu', 
+                		items: 
+            			[
+            				{
+                			xtype: 'menuitem', 
+                    		text: '지로관리',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '지로EDI',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt1000', '지로EDI']
+            	                            }
+            	                        }        				
+                    				},
+                                	{ 
+                                		xtype: 'menuitem', 
+                                		text: '지로발행(일괄)',
+                                        listeners: {
+                                           click: {
+                                              
+                                               fn: 'menuClick',
+                                               args: ['slAmt1700', '지로발행(일괄)']
+                                           }
+                                       }
+                                	},
+                                	{ 
+                                		xtype: 'menuitem', 
+                                		text: '지로발행(낱장)',
+                                        listeners: {
+                                           click: {
+                                              
+                                               fn: 'menuClick',
+                                               args: ['slAmt2000', '지로발행(낱장)']
+                                           }
+                                       }
+                                	}                    				
+                    			]
+            				}
+            			},
+            			
+        				{
+                			xtype: 'menuitem', 
+                    		text: '자동이체',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '자동이체신청',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt1300', '자동이체신청']
+            	                            }
+            	                        }        				
+                    				},
+                                	{ 
+                                		xtype: 'menuitem', 
+                                		text: '신청작업관리',
+                                        listeners: {
+                                           click: {
+                                              
+                                               fn: 'menuClick',
+                                               args: ['ssAmt1400', '신청작업관리']
+                                           }
+                                       }
+                                	},
+                                	{ 
+                                		xtype: 'menuitem', 
+                                		text: '승인오류목록',
+                                        listeners: {
+                                           click: {
+                                              
+                                               fn: 'menuClick',
+                                               args: ['ssAmt3000', '승인오류목록']
+                                           }
+                                       }
+                                	},
+                                	{ 
+                                		xtype: 'menuitem', 
+                                		text: '청구관리',
+                                        listeners: {
+                                           click: {
+                                              
+                                               fn: 'menuClick',
+                                               args: ['ssAmt1600', '청구관리']
+                                           }
+                                       }
+                                	} 
+                    			]
+            				}
+            			},
+            			
+        				{
+                			xtype: 'menuitem', 
+                    		text: '휴대폰자동이체',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '휴대폰자동이체',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt3800', '휴대폰자동이체']
+            	                            }
+            	                        }        				
+                    				}
+                    			]
+            				}
+            			},
+            			
+        				{
+                			xtype: 'menuitem', 
+                    		text: '카드자동이체',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '카드청구(기존)',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt2800', '카드청구(기존)']
+            	                            }
+            	                        }        				
+                    				},
+                    				
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '카드청구(신규)',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt4300', '카드청구(신규)']
+            	                            }
+            	                        }        				
+                    				}
+
+                    			]
+            				}
+            			},
+            			
+        				{
+                			xtype: 'menuitem', 
+                    		text: '독자환불관리',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '독자환불관리',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt3200', '독자환불관리']
+            	                            }
+            	                        }        				
+                    				}
+                    			]
+            				}
+            			},
+
+        				{
+                			xtype: 'menuitem', 
+                    		text: '지국이체',
+                    		menu: 
+                    		{
+                    			xtype: 'menu',
+                    			items:
+                    			[
+                    				{
+            	                		xtype: 'menuitem', 
+            	                		text: '지국송금이체',
+            	                        listeners: {
+            	                            click: { 	                               
+            	                                fn: 'menuClick',
+            	                                args: ['ssAmt2600', '지국송금이체']
+            	                            }
+            	                        }        				
+                    				}
+                    			]
+            				}
+            			}
+            			
+            			
+//                    	{ 
+//                    		xtype: 'button', 
+//                    		text: '관리자',
+//                            listeners: {
+//                               click: {
+//                                  
+//                                   fn: 'menuClick',
+//                                   args: ['AdmCode', '공통코드']
+//                               }
+//                           }
+//                    	},            			
+            			
+            			
+            			
+            			
+            		]
+            	}
+            	
+            	
+
+
+            	
+
+            },
+            
+            
+        	{ 
+        		xtype: 'button', 
+        		text: '시스템관리',
+        		menu: 
+    			[
+    				{
+                		xtype: 'button', 
+                		text: '공통코드',
+                        listeners: {
+                            click: {
+                               
+                                fn: 'menuClick',
+                                args: ['ssAdm1000', '공통코드']
+                            }
+                        }        				
+    				}
+
+    			]
+        	}	
             	
             ]
         },
