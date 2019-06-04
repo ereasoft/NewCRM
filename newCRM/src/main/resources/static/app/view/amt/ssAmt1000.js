@@ -14,7 +14,7 @@
  */
 
 Ext.define('hkCRM.view.amt.ssAmt1000', {
-    extend: 'Ext.window.Window',
+    extend: 'Ext.panel.Panel',
     alias: 'widget.ssamt1000',
 
     requires: [

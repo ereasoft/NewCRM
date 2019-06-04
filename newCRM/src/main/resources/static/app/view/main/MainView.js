@@ -164,7 +164,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt1000', '지로EDI']
+            	                                args: ['ssamt1000', '지로EDI']
             	                            }
             	                        }        				
                     				},
@@ -175,7 +175,7 @@ Ext.define('hkCRM.view.main.MainView', {
                                            click: {
                                               
                                                fn: 'menuClick',
-                                               args: ['slAmt1700', '지로발행(일괄)']
+                                               args: ['slamt1700', '지로발행(일괄)']
                                            }
                                        }
                                 	},
@@ -186,7 +186,7 @@ Ext.define('hkCRM.view.main.MainView', {
                                            click: {
                                               
                                                fn: 'menuClick',
-                                               args: ['slAmt2000', '지로발행(낱장)']
+                                               args: ['slamt2000', '지로발행(낱장)']
                                            }
                                        }
                                 	}                    				
@@ -208,7 +208,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt1300', '자동이체신청']
+            	                                args: ['ssamt1300', '자동이체신청']
             	                            }
             	                        }        				
                     				},
@@ -219,7 +219,7 @@ Ext.define('hkCRM.view.main.MainView', {
                                            click: {
                                               
                                                fn: 'menuClick',
-                                               args: ['ssAmt1400', '신청작업관리']
+                                               args: ['ssamt1400', '신청작업관리']
                                            }
                                        }
                                 	},
@@ -230,7 +230,7 @@ Ext.define('hkCRM.view.main.MainView', {
                                            click: {
                                               
                                                fn: 'menuClick',
-                                               args: ['ssAmt3000', '승인오류목록']
+                                               args: ['ssamt3000', '승인오류목록']
                                            }
                                        }
                                 	},
@@ -241,7 +241,7 @@ Ext.define('hkCRM.view.main.MainView', {
                                            click: {
                                               
                                                fn: 'menuClick',
-                                               args: ['ssAmt1600', '청구관리']
+                                               args: ['ssamt1600', '청구관리']
                                            }
                                        }
                                 	} 
@@ -263,7 +263,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt3800', '휴대폰자동이체']
+            	                                args: ['ssamt3800', '휴대폰자동이체']
             	                            }
             	                        }        				
                     				}
@@ -285,7 +285,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt2800', '카드청구(기존)']
+            	                                args: ['ssamt2800', '카드청구(기존)']
             	                            }
             	                        }        				
                     				},
@@ -296,7 +296,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt4300', '카드청구(신규)']
+            	                                args: ['ssamt4300', '카드청구(신규)']
             	                            }
             	                        }        				
                     				}
@@ -319,7 +319,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt3200', '독자환불관리']
+            	                                args: ['ssamt3200', '독자환불관리']
             	                            }
             	                        }        				
                     				}
@@ -341,7 +341,7 @@ Ext.define('hkCRM.view.main.MainView', {
             	                        listeners: {
             	                            click: { 	                               
             	                                fn: 'menuClick',
-            	                                args: ['ssAmt2600', '지국송금이체']
+            	                                args: ['ssamt2600', '지국송금이체']
             	                            }
             	                        }        				
                     				}
@@ -388,7 +388,7 @@ Ext.define('hkCRM.view.main.MainView', {
                             click: {
                                
                                 fn: 'menuClick',
-                                args: ['ssAdm1000', '공통코드']
+                                args: ['ssadm1000', '공통코드']
                             }
                         }        				
     				}
@@ -407,13 +407,6 @@ Ext.define('hkCRM.view.main.MainView', {
             defaults: { 
                 split: true 
             }
-        },
-        {
-            title: 'SIDE',
-            glyph: 'f05a@FontAwesome',
-            region: 'east',
-            minWidth: 100
-             
         }
    ],
     

@@ -24,7 +24,7 @@
  *  개발자명 : 이상윤 (ysaelee50@ereasoft.com)
  */
 Ext.define('hkCRM.view.slrdr.slRdr1100', {
-    extend: 'Ext.window.Window',
+    extend: 'Ext.panel.Panel',
     alias: 'widget.slrdr1100',
 
     requires: [

@@ -14,7 +14,7 @@
  */
 
 Ext.define('hkCRM.view.slrdr.slRdr2400', {
-    extend: 'Ext.window.Window',
+    extend: 'Ext.panel.Panel',
     alias: 'widget.slrdr2400',
 
     requires: [
