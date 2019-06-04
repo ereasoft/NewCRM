@@ -6,38 +6,9 @@ Ext.define('hkCRM.view.adm.AdmCodeController', {
    
     init: function(){ 
     	
-<<<<<<< HEAD
-    	var aaa ;
-        this.lookupReference('jobcls2').getStore().load( { 
-         		params:
-     					{   
-	       					loginID:loginID,
-	       					sessionkey: sessionkey
-     	                 } ,
-     	        url:'/api/Adm/getAdm1000', 
-     	         callback: function(records, operation, success) {
-     	             if (success) {
-     	            	 var obj = operation._response.responseJson;
-     	            	 if(obj ==undefined ){ //IE11 예외처리
-     	            		 obj = Ext.JSON.decode(operation._response.responseText)
-     	            	 }
-     	            	 if(obj.errmsg != null){Ext.Msg.alert('Failed', obj.errmsg);}   
-     	             } else {
-     	            	 var obj = operation.error.response.responseJson
-   	            	 if(obj ==undefined ){ //IE11 예외처리
-   	            		 obj = Ext.JSON.decode(operation.error.response.responseText)
-   	            	 }
-   	            	 Ext.Msg.alert('Failed', obj.message);
-     	             }
-     	         }
-     		}); 
-
-/*    	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
-=======
     	var frm = this;
     	
     	Ext.Ajax.request( {   //업무구분과 코드구분 콤보 조회
->>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
             url: '/api/Adm/getAdm1000',
             method: 'POST',
             headers: {

@@ -52,22 +52,12 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     labelAlign: 'right',
                     labelWidth: 60,
             		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
-<<<<<<< HEAD
-        		    minChars: 0, queryMode: 'remote', typeAhead: true, 
-            		store: {xtype:'AdmCodeSt'}
-                },
-                { 
-            		 xtype:'combobox', fieldLabel: '업무구분', name: 'jobcls' , width:120,reference: 'jobcls2',
-            		publishes: 'value',  displayField: 'CDNM', valueField: 'CDVAL', 
-				    minChars: 0, queryMode: 'local', typeAhead: true, 
-            		store: {xtype:'AdmCodeSt'}
-=======
         		    minChars: 0, queryMode: 'local', typeAhead: true, 
             		store: {xtype:'AdmCode'},
             		listeners: {
                         select: 'findCode'
                     }
->>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
+
                 },
                 {
                     xtype: 'combobox',
@@ -143,11 +133,7 @@ Ext.define('hkCRM.view.adm.AdmCode', {
                     xtype: 'gridpanel',
                     title: '',
                     store: {
-<<<<<<< HEAD
-                      //  type: 'AdmCode1001St'  
-=======
                        // type: 'AdmCode1001St'  
->>>>>>> branch 'master' of https://github.com/ereasoft/NewCRM.git
                     },
                     columns: [
                         {
