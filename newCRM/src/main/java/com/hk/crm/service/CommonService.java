@@ -33,4 +33,7 @@ public class CommonService {
 	public List<HashMap> insertArsRec(HashMap params) {
 		return  commonMapper.insertArsRec(params);
 	}	
+	public List<HashMap> getT714_0001(HashMap params) {
+		return  commonMapper.getT714_0001(params);
+	}	
 }

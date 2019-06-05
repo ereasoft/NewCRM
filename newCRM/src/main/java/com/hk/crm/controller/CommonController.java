@@ -45,7 +45,7 @@ public class CommonController {
 	private CommonService comrSv; 
 	RedisTemplate<String, Object> redisTemplate; 
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //우편번호 찾기
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //�슦�렪踰덊샇 李얘린
 	@RequestMapping(value="/api/common/getZip5Daum",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  getZip5Daum(  @RequestBody String body,ModelMap model ) { 
 		HashMap result = new HashMap();
@@ -66,7 +66,7 @@ public class CommonController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //로그인 이력
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //濡쒓렇�씤 �씠�젰
 	@RequestMapping(value="/api/common/getDkhtLog",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  getDkhtLog(  @RequestBody String body,ModelMap model ) { 
 		HashMap result = new HashMap();
@@ -89,7 +89,7 @@ public class CommonController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //SMS발송
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //SMS諛쒖넚
 	@RequestMapping(value="/api/common/getSendSMS",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  getSendSMS(  @RequestBody String body,ModelMap model ) { 
 		HashMap result = new HashMap();
@@ -112,7 +112,7 @@ public class CommonController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //로그인
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //濡쒓렇�씤
 	@RequestMapping(value="/getLogin",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  getLogin(  @RequestBody String body,ModelMap model ) { 
 		HashMap result = new HashMap(); 
@@ -175,7 +175,7 @@ public class CommonController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //SFTP테스트
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //SFTP�뀒�뒪�듃
 	@RequestMapping(value="/api/common/sftp",  method = RequestMethod.GET, headers="Accept=application/json")  
 	public  HashMap  sftp(  ) throws IOException { 
 		 HashMap result = new HashMap();   
@@ -197,7 +197,7 @@ public class CommonController {
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })  //ARS 인증처리
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //ARS �씤利앹쿂由�
 	@RequestMapping(value="/api/common/insertArsRec",  method = RequestMethod.POST, headers="Accept=application/json")  
 	public  HashMap  insertArsRec(  @RequestBody String body,ModelMap model ) { 
 		HashMap result = new HashMap();  
@@ -216,7 +216,7 @@ public class CommonController {
 
 			hash.put("fileobject",in);
 			
-			//파일 저장시작
+			//�뙆�씪 ���옣�떆�옉
 			String downUrl = "/home/crmweb/appcrm/crm/ROOT/ars/";
 			//downUrl = "D:\\hankyung\\ars\\";
 			File file = new File(downUrl + hash.get("wav").toString());
@@ -229,7 +229,7 @@ public class CommonController {
 				out.write(data, 0, length);
 			}
 			out.close();
-			//파일 저장완료 
+			//�뙆�씪 ���옣�셿猷� 
 		
 			comrSv.insertArsRec(hash);   
 			result.put("errmsg",hash.get("errmsg"));   
@@ -249,6 +249,32 @@ public class CommonController {
 		}
 		return result;
 	}
+	
+	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })  //지국정보 tree 가져오기
+	@RequestMapping(value="/api/common/getT714_0001",  method = RequestMethod.GET, headers="Accept=application/json")  
+	public  HashMap  getT714_0001(  @RequestBody String body,ModelMap model ) { 
+		HashMap result = new HashMap();
+		try { 
+			ObjectMapper mapper = new ObjectMapper(); 
+			HashMap hash = new HashMap();   
+			hash = mapper.readValue(body, new TypeReference<HashMap>(){}); 
+			
+			comrSv.getT714_0001(hash);  
+			result.put("errcode",hash.get("errcode"));
+			result.put("errmsg",hash.get("errmsg"));
+			result.put("totalcnt",hash.get("totalcnt"));
+			result.put("curlist",hash.get("curlist"));
+			
+			result.put("status", "true");
+		} catch(Exception ex) {
+			 result.put("status", "false");
+			 result.put("errmsg", ex.getMessage());
+			 log.debug(ex.getMessage());
+		}
+		return result;
+	}	
 	
 	
 

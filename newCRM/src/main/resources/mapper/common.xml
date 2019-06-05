@@ -112,4 +112,13 @@
     ) }
  </select> 
  
+ <select id="getT714_0001" parameterType="hashmap" statementType="CALLABLE">
+   { CALL NEWP_CO_T714_0001(
+			#{errcode, mode=OUT, jdbcType=VARCHAR},
+			#{errmsg, mode=OUT, jdbcType=VARCHAR},
+			#{totalcnt, mode=OUT, jdbcType=INT},
+			#{curlist, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=hashMap}
+    ) }
+ </select>  
+ 
 </mapper>  

@@ -12,4 +12,5 @@ public List<HashMap> getSendSMS(HashMap params);
 public List<HashMap> getLogin(HashMap params);
 public List<HashMap> getLogincheck(HashMap params);
 public List<HashMap> insertArsRec(HashMap params);
+public List<HashMap> getT714_0001(HashMap params); // 지국정보 Tree
 } 
