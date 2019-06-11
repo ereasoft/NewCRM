@@ -19,7 +19,7 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
 
     requires: [
         'hkCRM.view.amt.slAmt1700ViewModel',
-        //'hkCRM.model.slAmt1701',
+        'hkCRM.view.amt.slAmt1700ViewController',
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Date',
         'Ext.form.Label',
@@ -34,6 +34,8 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
         'Ext.form.field.Radio',
         'Ext.form.field.ComboBox'
     ],
+    
+    controller: 'slamt1700',
 
     viewModel: {
         type: 'slamt1700'
@@ -400,6 +402,18 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
                 {
                     xtype: 'button',
                     text: '저장'
+                },
+                {
+                    xtype: 'button',
+                    text: '고객안내문 관리',
+                    listeners: 
+                    {
+                        click: 
+                        {
+                            fn: 'clickslBsc2400',
+                            args: ['고객안내문 관리']
+                        }
+                    }
                 }
             ]
         }

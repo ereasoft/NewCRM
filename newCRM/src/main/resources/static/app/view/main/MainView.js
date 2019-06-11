@@ -76,8 +76,7 @@ Ext.define('hkCRM.view.main.MainView', {
 	                		xtype: 'button', 
 	                		text: '일반독자',
 	                        listeners: {
-	                            click: {
-	                               
+	                            click: {	                               
 	                                fn: 'menuClick',
 	                                args: ['slrdr1100', '일반독자']
 	                            }
@@ -381,17 +380,17 @@ Ext.define('hkCRM.view.main.MainView', {
         		text: '시스템관리',
         		menu: 
     			[
-    				{
-                		xtype: 'button', 
-                		text: '공통코드',
-                        listeners: {
-                            click: {
-                               
-                                fn: 'menuClick',
-                                args: ['ssadm1000', '공통코드']
-                            }
-                        }        				
-    				}
+//    				{
+//                		xtype: 'button', 
+//                		text: '공통코드',
+//                        listeners: {
+//                            click: {
+//                               
+//                                fn: 'menuClick',
+//                                args: ['ssadm1000', '공통코드']
+//                            }
+//                        }        				
+//    				}
 
     			]
         	}	

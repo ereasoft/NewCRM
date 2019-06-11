@@ -75,7 +75,6 @@ Ext.define('hkCRM.view.adm.AdmCode', {
             		    proxy: {
 
             		        type: 'memory',
-            		        //url:'/api/Adm/getAdm1000',
             		        reader: {
             		            type: 'json',
             		            rootProperty: 'jobcls'

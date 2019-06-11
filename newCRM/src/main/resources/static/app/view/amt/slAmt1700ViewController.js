@@ -15,5 +15,22 @@
 
 Ext.define('hkCRM.view.amt.slAmt1700ViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.slamt1700'
+    alias: 'controller.slamt1700',
+    
+    
+    init: function(){
+    		
+    },
+    
+    clickslBsc2400: function (type) 
+    {
+        var win = Ext.create("hkCRM.view.slbsc.slBsc2400", {
+            title: type, height: 600, width: 1000, modal: true, autoShow: false, titleAlign: 'center', layout: 'border'
+        });
+
+        win.show();
+        
+    }
+
+
 });
