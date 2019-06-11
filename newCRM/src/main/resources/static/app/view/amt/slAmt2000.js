@@ -33,6 +33,8 @@ Ext.define('hkCRM.view.amt.slAmt2000', {
         'Ext.grid.column.Date',
         'Ext.grid.column.Number'
     ],
+    
+    controller: 'slamt2000',
 
     viewModel: {
         type: 'slamt2000'
@@ -77,7 +79,8 @@ Ext.define('hkCRM.view.amt.slAmt2000', {
                             width: 215,
                             fieldLabel: '지로오른쪽',
                             labelAlign: 'right',
-                            labelWidth: 70
+                            labelWidth: 70,
+                            readOnly: true
                         },
                         {
                             xtype: 'combobox',
@@ -85,8 +88,13 @@ Ext.define('hkCRM.view.amt.slAmt2000', {
                             y: 55,
                             width: 200,
                             fieldLabel: '지로왼쪽',
+                            reference: 'leftcomment',	
                             labelAlign: 'right',
-                            labelWidth: 70
+                            labelWidth: 70,
+                            publishes: 'value',  displayField: 'DESCRI', valueField: 'GUIDWRTGCD', 
+                		    minChars: 0, queryMode: 'local', typeAhead: true, 
+                    		store: {xtype:'slBsc2401St'}                    
+
                         },
                         {
                             xtype: 'combobox',
@@ -214,11 +222,13 @@ Ext.define('hkCRM.view.amt.slAmt2000', {
                             items: [
                                 {
                                     xtype: 'radiofield',
-                                    boxLabel: 'A4 '
+                                    boxLabel: 'A4',
+                                    readOnly: true
                                 },
                                 {
                                     xtype: 'radiofield',
-                                    boxLabel: 'B4'
+                                    boxLabel: 'B4',
+                                   	readOnly: true
                                 },
                                 {
                                     xtype: 'radiofield',

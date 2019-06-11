@@ -36,7 +36,7 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
     ],
     
     controller: 'slamt1700',
-
+    
     viewModel: {
         type: 'slamt1700'
     },
@@ -356,11 +356,13 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
                     items: [
                         {
                             xtype: 'radiofield',
-                            boxLabel: 'A4'
+                            boxLabel: 'A4',
+                            readOnly: true
                         },
                         {
                             xtype: 'radiofield',
-                            boxLabel: 'B4'
+                            boxLabel: 'B4',
+                            readOnly: true
                         },
                         {
                             xtype: 'radiofield',
@@ -372,29 +374,37 @@ Ext.define('hkCRM.view.amt.slAmt1700', {
                     xtype: 'combobox',
                     width: 160,
                     fieldLabel: '오른쪽 안내문',
-                    labelWidth: 80
+                    labelWidth: 80,
+                    readOnly: true
                 },
                 {
                     xtype: 'combobox',
-                    width: 160,
+                    reference: 'leftcomment',	
+                    width: 250,
                     fieldLabel: '왼쪽 안내문',
-                    labelWidth: 80
+                    labelWidth: 100,
+                    labelAlign: 'right',
+                    publishes: 'value',  displayField: 'DESCRI', valueField: 'GUIDWRTGCD', 
+        		    minChars: 0, queryMode: 'local', typeAhead: true, 
+            		store: {xtype:'slBsc2401St'}                    
                 },
                 {
                     xtype: 'label',
-                    height: 20,
-                    text: '출력여백'
+                    height: 15,
+                    text: '출력여백',
+                    Width: 100,
+                    Align: 'right'
                 },
                 {
                     xtype: 'numberfield',
-                    width: 90,
+                    width: 120,
                     fieldLabel: '좌측',
                     labelAlign: 'right',
                     labelWidth: 40
                 },
                 {
                     xtype: 'numberfield',
-                    width: 90,
+                    width: 120,
                     fieldLabel: '상단',
                     labelAlign: 'right',
                     labelWidth: 40

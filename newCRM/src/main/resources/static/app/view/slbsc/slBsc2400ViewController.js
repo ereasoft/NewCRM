@@ -229,20 +229,8 @@ Ext.define('hkCRM.view.slbsc.slBsc2400ViewController', {
                 }
             } );    
         	
-
-
-        	
-        	
-        	
-        	 
-          // frm.lookupReference('curlist').title = "총건수 : " + store.getCount();
-             
-        	
-        	
     	}
     	
-
-
     },
     
     onItemClick: function(grid,record,item,index,e,eOpts)
@@ -267,6 +255,7 @@ Ext.define('hkCRM.view.slbsc.slBsc2400ViewController', {
     	this.lookupReference('D_LINE13').setValue(record.data.LINE13);
     }
     
+
     
     
 });

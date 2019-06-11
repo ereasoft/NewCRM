@@ -15,5 +15,51 @@
 
 Ext.define('hkCRM.view.amt.slAmt2000ViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.slamt2000'
+    alias: 'controller.slamt2000',
+    
+    
+    init: function(){ 
+     	
+     	var frm = this;
+     	
+     	// 왼쪽 안내문 콤보 store 조회
+     	Ext.Ajax.request( {   //안내문 목록 조회
+             url: '/api/bsc/getBsc2401',
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json', 
+             },  
+             jsonData: {
+             	bocd: '99999',
+             	guidclsfcd: '20',
+             	guidwrtgcd: '',
+             	pageno: 0,
+             	pagesize: 0,
+                 loginID:loginID,
+ 				sessionkey: sessionkey
+             },
+             success: function ( response, opts )
+             { 
+             	 var obj = Ext.decode( response.responseText ); 
+                 if ( obj.status == 'true' )
+                 {    
+                     var obj = Ext.decode( response.responseText ); 
+                   
+                    	frm.lookupReference('leftcomment').getStore().loadData(obj.curlist);    
+                 }
+                 else
+                 {
+                     Ext.Msg.alert( 'Failed', obj.errmsg, function () { return false; } );
+                 }
+             },
+
+             failure: function ( response, opts )
+             {
+                 Ext.Msg.alert( 'System Error', response.status, function () { return false; } );
+             }
+         } );
+     	
+     }
+
+     
 });
